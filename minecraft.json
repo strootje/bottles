@@ -1,0 +1,13 @@
+{
+	"name": "Minecraft",
+	"version": "1.0.0",
+	"tags": [ "games", "sandbox" ],
+
+	"downloads": {
+		"launcher": "http://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar"
+	},
+
+	"scripts": {
+		"start": "java -jar"
+	}
+}
