@@ -8,6 +8,7 @@
 	},
 
 	"scripts": {
-		"start": "java -jar"
+		"install": "cp {{launcher}} {{dir.install}}",
+		"start": "java -jar {{launcher}}"
 	}
 }
