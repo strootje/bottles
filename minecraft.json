@@ -8,7 +8,7 @@
 	},
 
 	"scripts": {
-		"install": "cp {{launcher}} {{dir.install}}",
-		"start": "java -jar {{launcher}}"
+		"install": "cp {{dir.download}}/Minecraft.jar {{dir.install}}",
+		"start": "java -jar {{dir.install}}/Minecraft.jar"
 	}
 }
