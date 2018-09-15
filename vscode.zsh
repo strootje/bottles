@@ -29,6 +29,9 @@ sources() {
 prebuild() {
 	info "PRE-BUILD"
 
+	progress "installing node 8"
+	nvm install 8
+
 	progress "running yarn"
 	(cd $REPOPATH && yarn)
 
