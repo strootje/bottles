@@ -1,0 +1,55 @@
+https://github.com/microsoft/vscode.git
+https://stackoverflow.com/questions/8965606/node-and-error-emfile-too-many-open-files
+https://github.com/Microsoft/vscode/wiki/How-to-Contribute#build-and-run-from-source
+https://stackoverflow.com/questions/37143536/no-extensions-found-when-running-visual-studio-code-from-source#37238623
+
+
+
+
+
+// $bottle='vscode';
+// $globally=false/true;
+// $installdir=$globally ? '/opt/$bottle' : '/usr/share/$bottle';
+// $bin=$globally ? '/bin/vscode' : '/usr/local/bin/vscode';
+
+{
+	"name": "vscode",
+	"version": "0.1.0",
+	"description": "",
+
+	"source": "https://github.com/microsoft/vscode.git",
+
+	"data": {
+		"product.json": {
+			"extensionsGallery": {
+					"serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+					"cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+					"itemUrl": "https://marketplace.visualstudio.com/items"
+			}
+		}
+	},
+
+	"scripts": {
+		"prebuild": [
+			"yarn",
+			"node -e \"var w=require('fs').writeFileSync,p=require('./product.json');p.test=123123;w('./p.json',JSON.stringify(p));\"",
+			"cp /etc/security/limits.conf /etc/security/limits.conf.bak"
+			"printf \"root\tsoft\tnofile\t40000\r\nroot\thard\tnofile\t100000\r\n\" >> /etc/security/limits.conf",
+		],
+
+		"build": [
+			"./node_modules/.bin/gulp vscode-linux-x64-min"
+		],
+
+		"postbuild": [
+			"rm /etc/security/limits.conf",
+			"mv /etc/security/limits.conf.bak /etc/security/limits.conf"
+		],
+
+		"install": [
+			"mv ./../VSCode-linux-x64 $dir:install",
+			"ln -s $installdir/bin/code-oss $dir:bin/vscode",
+			"echo TODO: create launcher"
+		]
+	}
+}

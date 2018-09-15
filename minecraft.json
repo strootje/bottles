@@ -1,14 +1,23 @@
 {
-	"name": "Minecraft",
-	"version": "1.0.0",
-	"tags": [ "games", "sandbox" ],
+	"name": "minecraft",
+	"version": "0.1.0",
+	"description": "",
+	"tags": [],
 
-	"downloads": {
-		"launcher": "http://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar"
+	"source": {
+		"type": "download",
+		"files": {
+			"launcher.jar": "http://s3.amazonaws.com/Minecraft.Download/launcher/Minecraft.jar"
+		}
 	},
 
 	"scripts": {
-		"install": "cp {{dir.download}}/Minecraft.jar {{dir.install}}",
-		"start": "java -jar {{dir.install}}/Minecraft.jar"
+		"install": [
+			"cp ${dir:download}/launcher.jar ${dir:install}/launcher.jar"
+		],
+
+		"run": [
+			"java -jar ${dir:install}/launcher.jar"
+		]
 	}
 }
