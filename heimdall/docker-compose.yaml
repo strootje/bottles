@@ -1,0 +1,26 @@
+version: "3.2"
+
+networks:
+  heimdall_net:
+    driver: bridge
+
+volumes:
+  heimdall_config: ~
+
+services:
+  heimdall_app:
+    image: linuxserver/heimdall
+    container_name: heimdall_app
+    restart: unless-stopped
+    # mem_limit: 4096m
+    networks:
+      - heimdall_net
+    volumes:
+      - heimdall_config:/config
+    ports:
+      - 3030:80
+      - 3031:443
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Europe/London
