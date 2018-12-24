@@ -47,6 +47,7 @@ services:
       - TZ=Europe/Amsterdam
       - APP_LOG_LEVEL=debug
     command: [
+      'sleep 10s',
       'php artisan migrate --seed &&',
       'php artisan firefly:upgrade-database &&',
       'php artisan firefly:verify &&',
