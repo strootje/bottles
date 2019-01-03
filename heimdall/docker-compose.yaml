@@ -11,7 +11,7 @@ services:
   heimdall_app:
     image: linuxserver/heimdall
     container_name: heimdall_app
-    restart: always
+    restart: unless-stopped
     networks:
       - heimdall_net
     volumes:
