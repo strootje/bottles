@@ -1,0 +1,11 @@
+[
+	{
+		"type": 3,
+		"title": "Heimdall",
+		"description": "Custom homepage",
+		"repository": {
+			"url": "https://github.com/strootje/bottles.git",
+			"stackfile": "heimdall/docker-compose.yaml"
+		}
+	}
+]
