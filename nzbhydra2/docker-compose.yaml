@@ -10,8 +10,7 @@ volumes:
 
 services:
   nzbhydra_app:
-    image: linuxserver/hydra
-    container_name: nzbhydra_app
+    image: linuxserver/hydra2
     restart: unless-stopped
     networks:
       - nzbhydra_net
@@ -19,7 +18,7 @@ services:
       - nzbhydra_config:/config
       - nzbhydra_downloads:/downloads
     ports:
-      - 5075:5075
+      - 5076:5076
     environment:
       - PUID=1001
       - PGID=1001

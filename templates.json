@@ -2,20 +2,102 @@
 	{
 		"type": 3,
 		"title": "Heimdall",
-		"description": "Custom homepage",
+		"description": "Customizable homepage",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
+
 		"repository": {
 			"url": "https://github.com/strootje/bottles.git",
 			"stackfile": "heimdall/docker-compose.yaml"
-		}
+		},
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": 1001
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": 1001
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
 	},
 
 	{
 		"type": 3,
-		"title": "NZBHydra",
-		"description": "NZB metasearch machine",
+		"title": "Let's Encrypt",
+		"description": "Reverse SLL Proxy",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/le-logo-wide.png",
+
 		"repository": {
 			"url": "https://github.com/strootje/bottles.git",
-			"stackfile": "nzbhydra/docker-compose.yaml"
-		}
+			"stackfile": "letsencrypt/docker-compose.yaml"
+		},
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": 1001
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": 1001
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			},
+			{
+				"name": "EMAIL",
+				"label": "Email"
+			},
+			{
+				"name": "URL",
+				"label": "Domain base URL"
+			},
+			{
+				"name": "SUBDOMAINS",
+				"label": "Subdomains"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "NZB Hydra 2",
+		"description": "Meta Search for NZB indexers",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png",
+
+		"repository": {
+			"url": "https://github.com/strootje/bottles.git",
+			"stackfile": "nzbhydra2/docker-compose.yaml"
+		},
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": 1001
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": 1001
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
 	}
 ]
