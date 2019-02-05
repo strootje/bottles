@@ -14,12 +14,12 @@
 			{
 				"name": "PUID",
 				"label": "Portainer User ID",
-				"default": "1001"
+				"default": 1001
 			},
 			{
 				"name": "PGID",
 				"label": "Portainer Group ID",
-				"default": "1001"
+				"default": 1001
 			},
 			{
 				"name": "TZ",
@@ -44,12 +44,12 @@
 			{
 				"name": "PUID",
 				"label": "Portainer User ID",
-				"default": "1001"
+				"default": 1001
 			},
 			{
 				"name": "PGID",
 				"label": "Portainer Group ID",
-				"default": "1001"
+				"default": 1001
 			},
 			{
 				"name": "TZ",
@@ -72,7 +72,7 @@
 	},
 
 	{
-		"type": 1,
+		"type": 3,
 		"title": "NZB Hydra 2",
 		"description": "Meta Search for NZB indexers",
 		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png",
@@ -86,12 +86,12 @@
 			{
 				"name": "PUID",
 				"label": "Portainer User ID",
-				"default": "1001"
+				"default": 1001
 			},
 			{
 				"name": "PGID",
 				"label": "Portainer Group ID",
-				"default": "1001"
+				"default": 1001
 			},
 			{
 				"name": "TZ",
