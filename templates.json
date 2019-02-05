@@ -14,12 +14,12 @@
 			{
 				"name": "PUID",
 				"label": "Portainer User ID",
-				"default": 1001
+				"default": "1001"
 			},
 			{
 				"name": "PGID",
 				"label": "Portainer Group ID",
-				"default": 1001
+				"default": "1001"
 			},
 			{
 				"name": "TZ",
@@ -44,12 +44,12 @@
 			{
 				"name": "PUID",
 				"label": "Portainer User ID",
-				"default": 1001
+				"default": "1001"
 			},
 			{
 				"name": "PGID",
 				"label": "Portainer Group ID",
-				"default": 1001
+				"default": "1001"
 			},
 			{
 				"name": "TZ",
@@ -86,12 +86,12 @@
 			{
 				"name": "PUID",
 				"label": "Portainer User ID",
-				"default": 1001
+				"default": "1001"
 			},
 			{
 				"name": "PGID",
 				"label": "Portainer Group ID",
-				"default": 1001
+				"default": "1001"
 			},
 			{
 				"name": "TZ",
