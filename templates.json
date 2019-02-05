@@ -7,5 +7,15 @@
 			"url": "https://github.com/strootje/bottles.git",
 			"stackfile": "heimdall/docker-compose.yaml"
 		}
+	},
+
+	{
+		"type": 3,
+		"title": "NZBHydra",
+		"description": "NZB metasearch machine",
+		"repository": {
+			"url": "https://github.com/strootje/bottles.git",
+			"stackfile": "nzbhydra/docker-compose.yaml"
+		}
 	}
 ]

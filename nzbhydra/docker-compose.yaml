@@ -1,0 +1,26 @@
+version: '2'
+
+networks:
+  nzbhydra_net:
+    driver: bridge
+
+volumes:
+  nzbhydra_config: ~
+  nzbhydra_downloads: ~
+
+services:
+  nzbhydra_app:
+    image: linuxserver/hydra
+    container_name: nzbhydra_app
+    restart: unless-stopped
+    networks:
+      - nzbhydra_net
+    volumes:
+      - nzbhydra_config:/config
+      - nzbhydra_downloads:/downloads
+    ports:
+      - 5075:5075
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=Europe/London
