@@ -1,20 +1,14 @@
 version: '2'
 
-networks:
-  heimdall_net:
-    driver: bridge
-
 volumes:
-  heimdall_config: ~
+  config: ~
 
 services:
-  heimdall_app:
+  app:
     image: linuxserver/heimdall
     restart: unless-stopped
-    networks:
-      - heimdall_net
     volumes:
-      - heimdall_config:/config
+      - config:/config
     ports:
       - 3030:80
       - 3031:443

@@ -1,22 +1,16 @@
 version: '2'
 
-networks:
-  letsencrypt_net:
-    driver: bridge
-
 volumes:
-  letsencrypt_config: ~
+  config: ~
 
 services:
-  letsencrypt_app:
+  app:
     image: linuxserver/hydra
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
-    networks:
-      - letsencrypt_net
     volumes:
-      - letsencrypt_config:/config
+      - config:/config
     ports:
       - 80:80
       - 443:443

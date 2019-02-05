@@ -1,9 +1,5 @@
 version: '2'
 
-networks:
-  nzbhydra_net:
-    driver: bridge
-
 volumes:
   nzbhydra_config: ~
   nzbhydra_downloads: ~
@@ -12,8 +8,6 @@ services:
   nzbhydra_app:
     image: linuxserver/hydra2
     restart: unless-stopped
-    networks:
-      - nzbhydra_net
     volumes:
       - nzbhydra_config:/config
       - nzbhydra_downloads:/downloads

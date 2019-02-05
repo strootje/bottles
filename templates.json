@@ -1,23 +1,28 @@
 [
 	{
-		"type": 3,
+		"type": 1,
 		"title": "Heimdall",
 		"description": "Customizable homepage",
 		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
 
-		"repository": {
-			"url": "https://github.com/strootje/bottles.git",
-			"stackfile": "heimdall/docker-compose.yaml"
-		},
+		"image": "linuxserver/heimdall",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"3030:80/tcp",
+			"3031:443/tcp"],
+		"volumes": [
+			{ "container": "/config" }],
 
 		"env": [
 			{
 				"name": "PUID",
-				"label": "Portainer User ID"
+				"label": "Portainer User ID",
+				"default": 1001
 			},
 			{
 				"name": "PGID",
-				"label": "Portainer Group ID"
+				"label": "Portainer Group ID",
+				"default": 1001
 			},
 			{
 				"name": "TZ",
