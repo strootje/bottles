@@ -13,13 +13,11 @@
 		"env": [
 			{
 				"name": "PUID",
-				"label": "Portainer User ID",
-				"default": "t1001"
+				"label": "Portainer User ID"
 			},
 			{
 				"name": "PGID",
-				"label": "Portainer Group ID",
-				"default": "t1001"
+				"label": "Portainer Group ID"
 			},
 			{
 				"name": "TZ",
@@ -43,13 +41,11 @@
 		"env": [
 			{
 				"name": "PUID",
-				"label": "Portainer User ID",
-				"default": "t1001"
+				"label": "Portainer User ID"
 			},
 			{
 				"name": "PGID",
-				"label": "Portainer Group ID",
-				"default": "t1001"
+				"label": "Portainer Group ID"
 			},
 			{
 				"name": "TZ",
@@ -85,13 +81,11 @@
 		"env": [
 			{
 				"name": "PUID",
-				"label": "Portainer User ID",
-				"default": "t1001"
+				"label": "Portainer User ID"
 			},
 			{
 				"name": "PGID",
-				"label": "Portainer Group ID",
-				"default": "t1001"
+				"label": "Portainer Group ID"
 			},
 			{
 				"name": "TZ",
