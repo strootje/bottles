@@ -212,6 +212,7 @@
 		"image": "linuxserver/transmission",
 		"restart_policy": "unless-stopped",
 		"ports": [
+			"8090:9091/tcp",
 			"51413:51413/tcp",
 			"51413:51413/udp"],
 		"volumes": [
