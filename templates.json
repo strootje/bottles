@@ -33,6 +33,261 @@
 	},
 
 	{
+		"type": 1,
+		"title": "Sonarr",
+		"description": "Serie Scrapper",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png",
+
+		"image": "linuxserver/sonarr",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"8989:8989/tcp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/tv" },
+			{ "container": "/downloads" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "Radarr",
+		"description": "Movie Scrapper",
+		"logo": "https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/text256.png",
+
+		"image": "linuxserver/radarr",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"7878:7878/tcp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/movies" },
+			{ "container": "/downloads" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "Lidarr",
+		"description": "Music Scrapper",
+		"logo": "https://raw.githubusercontent.com/lidarr/Lidarr/develop/Logo/400.png",
+
+		"image": "linuxserver/lidarr",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"8686:8686/tcp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/music" },
+			{ "container": "/downloads" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "Bazarr",
+		"description": "Subtitle Scrapper",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png",
+
+		"image": "linuxserver/bazarr",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"6767:6767/tcp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/movies" },
+			{ "container": "/tv" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "Sabzbd",
+		"description": "Usenet Downloader",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png",
+
+		"image": "linuxserver/sabnzbd",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"8080:8080/tcp",
+			"9090:9090/tcp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/downloads" },
+			{ "container": "/incomplete-downloads" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "Transmission",
+		"description": "Torrent Downloader",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+
+		"image": "linuxserver/transmission",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"51413:51413/tcp",
+			"51413:51413/udp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/downloads" },
+			{ "container": "/watch" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			},
+			{
+				"name": "TRANSMISSION_WEB_HOME",
+				"label": "Alternate UI Options",
+				"default": "/combustion-release"
+			}
+		]
+	},
+
+	{
+		"type": 1,
+		"title": "NZB Hydra 2",
+		"description": "Meta Search for NZB indexers",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png",
+
+		"image": "linuxserver/hydra2",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"5076:5076/tcp"],
+		"volumes": [
+			{ "container": "/config" },
+			{ "container": "/downloads" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+	{
 		"type": 3,
 		"title": "Let's Encrypt",
 		"description": "Reverse SLL Proxy",
@@ -74,35 +329,17 @@
 
 	{
 		"type": 1,
-		"title": "NZB Hydra 2",
-		"description": "Meta Search for NZB indexers",
-		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png",
+		"title": "Pi-hole",
+		"description": "Code Search and Navigation for Developers",
+		"logo": "https://pi-hole.github.io/graphics/Vortex/Vortex_with_text.png",
 
-		"image": "linuxserver/hydra2",
+		"image": "pihole/pihole",
 		"restart_policy": "unless-stopped",
 		"ports": [
-			"5076:5076/tcp"],
+			"7080:7080/tcp"],
 		"volumes": [
-			{ "container": "/config" },
-			{ "container": "/downloads" }],
-
-		"env": [
-			{
-				"name": "PUID",
-				"label": "Portainer User ID",
-				"default": "1001"
-			},
-			{
-				"name": "PGID",
-				"label": "Portainer Group ID",
-				"default": "1001"
-			},
-			{
-				"name": "TZ",
-				"label": "Timezone",
-				"default": "Europe/Amsterdam"
-			}
-		]
+			{ "container": "/etc/sourcegraph" },
+			{ "container": "/var/opt/sourcegraph" }]
 	},
 
 	{
@@ -111,7 +348,7 @@
 		"description": "Code Search and Navigation for Developers",
 		"logo": "https://index.tnwcdn.com/images/5b13a61dc5cfd389451e474e2a0458209e2d17e7.jpg",
 
-		"image": "sourcegraph/server:3",
+		"image": "sourcegraph/server",
 		"restart_policy": "unless-stopped",
 		"ports": [
 			"7080:7080/tcp"],
