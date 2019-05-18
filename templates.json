@@ -34,6 +34,83 @@
 
 	{
 		"type": 1,
+		"title": "Healthchecks",
+		"description": "Service Status Checker",
+		"logo": "https://healthchecks.io/static/img/logo-full.png",
+
+		"image": "linuxserver/healthchecks",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"3040:8000/tcp"],
+		"volumes": [
+			{ "container": "/config" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			},
+			{
+				"name": "SITE_ROOT",
+				"label": "Site Root",
+				"default": "SITE_ROOT"
+			},
+			{
+				"name": "SITE_NAME",
+				"label": "Site Name",
+				"default": "SITE_NAME"
+			},
+			{
+				"name": "DEFAULT_FROM_EMAIL",
+				"label": "Default From Email",
+				"default": "DEFAULT_FROM_EMAIL"
+			},
+			{
+				"name": "EMAIL_HOST",
+				"label": "Email Host",
+				"default": "EMAIL_HOST"
+			},
+			{
+				"name": "EMAIL_PORT",
+				"label": "Email Port",
+				"default": "EMAIL_PORT"
+			},
+			{
+				"name": "EMAIL_HOST_USER",
+				"label": "Email User",
+				"default": "EMAIL_HOST_USER"
+			},
+			{
+				"name": "EMAIL_HOST_PASSWORD",
+				"label": "Email Password",
+				"default": "EMAIL_HOST_PASSWORD"
+			},
+			{
+				"name": "EMAIL_USE_TLS",
+				"label": "User TLS",
+				"default": "EMAIL_USE_TLS"
+			},
+			{
+				"name": "ALLOWED_HOSTS",
+				"label": "Allowed Hosts",
+				"default": "ALLOWED_HOSTS"
+			}
+		]
+	},
+
+	{
+		"type": 1,
 		"title": "Sonarr",
 		"description": "Serie Scrapper",
 		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png",
