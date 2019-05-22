@@ -1,6 +1,39 @@
 [
 	{
 		"type": 1,
+		"title": "Nginx",
+		"description": "Server and Reverse Proxy",
+		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png",
+
+		"image": "linuxserver/nginx",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"80:80/tcp",
+			"443:443/tcp"],
+		"volumes": [
+			{ "container": "/config" }],
+
+		"env": [
+			{
+				"name": "PUID",
+				"label": "Portainer User ID",
+				"default": "1001"
+			},
+			{
+				"name": "PGID",
+				"label": "Portainer Group ID",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			}
+		]
+	},
+
+	{
+		"type": 1,
 		"title": "Heimdall",
 		"description": "Customizable homepage",
 		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
@@ -495,27 +528,19 @@
 		]
 	},
 
-
-
-
-
-
-
-
-
-
-
-
 	{
-		"type": 3,
-		"title": "Let's Encrypt",
-		"description": "Reverse SLL Proxy",
-		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/le-logo-wide.png",
+		"type": 1,
+		"title": "SourceGraph",
+		"description": "Code Search and Navigation for Developers",
+		"logo": "https://index.tnwcdn.com/images/5b13a61dc5cfd389451e474e2a0458209e2d17e7.jpg",
 
-		"repository": {
-			"url": "https://github.com/strootje/bottles.git",
-			"stackfile": "letsencrypt/docker-compose.yaml"
-		},
+		"image": "sourcegraph/server:3.3.7",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"7080:7080/tcp"],
+		"volumes": [
+			{ "container": "/etc/sourcegraph" },
+			{ "container": "/var/opt/sourcegraph" }],
 
 		"env": [
 			{
@@ -532,49 +557,7 @@
 				"name": "TZ",
 				"label": "Timezone",
 				"default": "Europe/Amsterdam"
-			},
-			{
-				"name": "EMAIL",
-				"label": "Email"
-			},
-			{
-				"name": "URL",
-				"label": "Domain base URL"
-			},
-			{
-				"name": "SUBDOMAINS",
-				"label": "Subdomains"
 			}
 		]
-	},
-
-	{
-		"type": 1,
-		"title": "Pi-hole",
-		"description": "Code Search and Navigation for Developers",
-		"logo": "https://pi-hole.github.io/graphics/Vortex/Vortex_with_text.png",
-
-		"image": "pihole/pihole",
-		"restart_policy": "unless-stopped",
-		"ports": [
-			"7080:7080/tcp"],
-		"volumes": [
-			{ "container": "/etc/sourcegraph" },
-			{ "container": "/var/opt/sourcegraph" }]
-	},
-
-	{
-		"type": 1,
-		"title": "SourceGraph",
-		"description": "Code Search and Navigation for Developers",
-		"logo": "https://index.tnwcdn.com/images/5b13a61dc5cfd389451e474e2a0458209e2d17e7.jpg",
-
-		"image": "sourcegraph/server:3.3.7",
-		"restart_policy": "unless-stopped",
-		"ports": [
-			"7080:7080/tcp"],
-		"volumes": [
-			{ "container": "/etc/sourcegraph" },
-			{ "container": "/var/opt/sourcegraph" }]
 	}
 ]
