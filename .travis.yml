@@ -19,5 +19,4 @@ deploy:
     - "./dist/templates.json"
   skip_cleanup: true
   on:
-    tags: true
     branch: master
