@@ -16,5 +16,6 @@ deploy:
   provider: surge
   project: ./dist/
   domain: bottles.surge.sh
+  skip_cleanup: true
   on:
     branch: master
