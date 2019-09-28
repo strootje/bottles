@@ -7,7 +7,8 @@
 	"image": "linuxserver/ubooquity",
 	"restart_policy": "unless-stopped",
 	"ports": [
-		"6767:6767/tcp"],
+		"2202:2202/tcp",
+		"2203:2203/tcp"],
 	"volumes": [
 		{ "container": "/config" },
 		{ "container": "/books" },

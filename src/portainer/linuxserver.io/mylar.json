@@ -1,0 +1,33 @@
+[{
+	"type": 1,
+	"title": "Mylar",
+	"description": "Comic Downloader",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png",
+
+	"image": "linuxserver/mylar",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8090:8090/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/comics" },
+		{ "container": "/downloads" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]
