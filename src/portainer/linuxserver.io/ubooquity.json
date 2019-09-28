@@ -1,0 +1,33 @@
+[{
+	"type": 1,
+	"title": "Ubooquity",
+	"description": "Ebook Scrapper",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png",
+
+	"image": "linuxserver/ubooquity",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"6767:6767/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/books" },
+		{ "container": "/comics" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]
