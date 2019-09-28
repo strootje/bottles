@@ -1,0 +1,32 @@
+[{
+	"type": 1,
+	"title": "Heimdall",
+	"description": "Customizable homepage",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
+
+	"image": "linuxserver/heimdall",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"3000:80/tcp",
+		"3001:443/tcp"],
+	"volumes": [
+		{ "container": "/config" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]

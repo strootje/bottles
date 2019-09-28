@@ -1,0 +1,33 @@
+[{
+	"type": 1,
+	"title": "Bazarr",
+	"description": "Subtitle Scrapper",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png",
+
+	"image": "linuxserver/bazarr",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"6767:6767/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/movies" },
+		{ "container": "/tv" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]

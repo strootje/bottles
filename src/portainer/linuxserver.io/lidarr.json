@@ -1,0 +1,33 @@
+[{
+	"type": 1,
+	"title": "Lidarr",
+	"description": "Music Scrapper",
+	"logo": "https://raw.githubusercontent.com/lidarr/Lidarr/develop/Logo/400.png",
+
+	"image": "linuxserver/lidarr",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8686:8686/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/music" },
+		{ "container": "/downloads" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]

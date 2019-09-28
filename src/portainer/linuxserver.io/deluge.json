@@ -1,0 +1,35 @@
+[{
+	"type": 1,
+	"title": "Deluge",
+	"description": "Torrent Downloader",
+	"logo": "https://avatars2.githubusercontent.com/u/6733935?v=3&s=200",
+
+	"image": "linuxserver/deluge",
+	"restart_policy": "unless-stopped",
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/downloads" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "UMASK_SET",
+			"label": "UMask Set",
+			"default": "022"
+		}
+	]
+}]

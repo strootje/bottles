@@ -1,0 +1,34 @@
+[{
+	"type": 1,
+	"title": "Sabzbd",
+	"description": "Usenet Downloader",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png",
+
+	"image": "linuxserver/sabnzbd",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"4010:8080/tcp",
+		"4011:9090/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/downloads" },
+		{ "container": "/incomplete-downloads" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]

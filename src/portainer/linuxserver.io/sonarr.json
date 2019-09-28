@@ -1,0 +1,33 @@
+[{
+	"type": 1,
+	"title": "Sonarr",
+	"description": "Serie Scrapper",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png",
+
+	"image": "linuxserver/sonarr",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8989:8989/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/tv" },
+		{ "container": "/downloads" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]

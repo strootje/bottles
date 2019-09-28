@@ -1,0 +1,40 @@
+[{
+	"type": 1,
+	"title": "Syncthing",
+	"description": "File Sync Server",
+	"logo": "https://syncthing.net/images/logo-horizontal.svg",
+
+	"image": "linuxserver/syncthing",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8384:8384/tcp",
+		"22000:22000/tcp",
+		"21027:21027/udp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/data1" },
+		{ "container": "/data2" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "UMASK_SET",
+			"label": "UMask",
+			"default": "022"
+		}
+	]
+}]

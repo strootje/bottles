@@ -1,0 +1,32 @@
+[{
+	"type": 1,
+	"title": "Jackett",
+	"description": "Usenet Index Aggregator",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png",
+
+	"image": "linuxserver/jackett",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"9117:9117/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/downloads" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		}
+	]
+}]

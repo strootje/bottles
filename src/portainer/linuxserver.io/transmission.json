@@ -1,0 +1,40 @@
+[{
+	"type": 1,
+	"title": "Transmission",
+	"description": "Torrent Downloader",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+
+	"image": "linuxserver/transmission",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"4020:9091/tcp",
+		"51413:51413/tcp",
+		"51413:51413/udp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/downloads" },
+		{ "container": "/watch" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "TRANSMISSION_WEB_HOME",
+			"label": "Alternate UI Options",
+			"default": "/combustion-release"
+		}
+	]
+}]
