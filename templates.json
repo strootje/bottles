@@ -451,7 +451,7 @@
 			{
 				"name": "UMASK_SET",
 				"label": "UMask Set",
-				"default": "022-release"
+				"default": "022"
 			}
 		]
 	},
@@ -570,7 +570,7 @@
 		"description": "Code Search and Navigation for Developers",
 		"logo": "https://index.tnwcdn.com/images/5b13a61dc5cfd389451e474e2a0458209e2d17e7.jpg",
 
-		"image": "sourcegraph/server:3.3.7",
+		"image": "sourcegraph/server:3.8.0",
 		"restart_policy": "unless-stopped",
 		"ports": [
 			"7080:7080/tcp"],
