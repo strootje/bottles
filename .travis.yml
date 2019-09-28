@@ -1,6 +1,20 @@
+language: node_js
+node_js: lts/*
+
+cache:
+  npm: true
+  directories:
+  - $HOME/.pnpm-store/
+
+before_install:
+- curl -L https://unpkg.com/@pnpm/self-installer | node
+
+script:
+- pnpm run build
+
 deploy:
   provider: releases
-  api_key: "GITHUB OAUTH TOKEN"
+  api_key: $GITHUB_TOKEN
   file:
     - "./dist/templates.json"
   skip_cleanup: true
