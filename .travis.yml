@@ -16,3 +16,5 @@ deploy:
   provider: surge
   project: ./dist/
   domain: bottles.surge.sh
+  on:
+    branch: master
