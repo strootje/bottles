@@ -13,10 +13,6 @@ script:
 - pnpm run build
 
 deploy:
-  provider: releases
-  api_key: $GITHUB_TOKEN
-  file:
-    - "./dist/templates.json"
-  skip_cleanup: true
-  on:
-    branch: master
+  provider: surge
+  project: ./dist/
+  domain: bottles.surge.sh
