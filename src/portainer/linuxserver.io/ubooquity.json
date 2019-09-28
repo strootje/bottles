@@ -28,6 +28,11 @@
 			"name": "TZ",
 			"label": "Timezone",
 			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "MAXMEM",
+			"label": "MAXMEM",
+			"default": "maxmem"
 		}
 	]
 }]
