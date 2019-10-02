@@ -1,0 +1,12 @@
+[{
+	"type": 1,
+	"title": "Logstash",
+	"description": "Logstash is an open source data collection engine with real-time pipelining capabilities.",
+	"logo": "https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ef6fbb88b5283a3/5bd9e2c169224a5158ed93cf/icon-logstash-bb.svg",
+
+	"image": "docker.elastic.co/logstash/logstash:7.4.0",
+	"restart_policy": "unless-stopped",
+	"volumes": [
+		{ "container": "/usr/share/logstash/config/logstash.yml" },
+		{ "container": "/usr/share/logstash/pipeline/" }]
+}]
