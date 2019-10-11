@@ -4,6 +4,8 @@ RUN apk --no-cache --no-progress add stunnel openrc && \
    rm -rf /tmp/* && \
    mkdir -p /run/openrc && touch /run/openrc/softlevel
 
-COPY ./stunnel.conf /etc/default/stunnel3
+COPY ./stunnel.sh /usr/bin/
 
 VOLUME ["/etc/stunnel"]
+
+ENTRYPOINT ["/sbin/tini", "--", "/usr/bin/stunnel.sh"]
