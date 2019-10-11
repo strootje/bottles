@@ -6,26 +6,16 @@ cache:
   directories:
   - $HOME/.pnpm-store/
 
-addons:
-  sonarcloud:
-    organization: "strootje"
-
-stages:
-- name: build
-- name: deploy
-  if: branch = master
-
 before_install:
 - curl -L https://unpkg.com/@pnpm/self-installer | node
 
-jobs:
-  include:
-  - stage: build
-    script: pnpm run build
-  - stage: deploy
-    script: skip
-    deploy:
-      provider: surge
-      project: ./dist/
-      domain: bottles.surge.sh
-      skip_cleanup: true
+script:
+- pnpm run build
+
+deploy:
+  provider: surge
+  project: ./dist/
+  domain: bottles.surge.sh
+  skip_cleanup: true
+  on:
+    branch: master
