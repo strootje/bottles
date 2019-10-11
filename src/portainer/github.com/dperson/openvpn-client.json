@@ -1,0 +1,47 @@
+[{
+	"type": 1,
+	"title": "OpenVPN Client",
+	"description": "OpenVPN for Containers",
+	"logo": "https://raw.githubusercontent.com/dperson/openvpn-client/master/logo.png",
+	"categories": [ "github.com", "dperson", "openvpn", "vpn" ],
+
+	"image": "dperson/openvpn-client",
+	"restart_policy": "unless-stopped",
+	"volumes": [
+		{ "container": "/vpn" }],
+
+	"env": [
+		{
+			"name": "GROUPID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "FIREWALL",
+			"label": "FIREWALL",
+			"description": "",
+			"default": "",
+			"preset": true
+		},
+		{
+			"name": "ROUTE",
+			"label": "Allowed Network Route (ipv4)",
+			"description": "Add a route to allow replies to your private network (Try: `ip route | awk '!/ (docker0|br-)/ && /src/ {print $1}'`)"
+		},
+		{
+			"name": "ROUTE6",
+			"label": "Allowed Network Route (ipv6)",
+			"description": "Add a route to allow replies to your private network (Try: `ip route | awk '!/ (docker0|br-)/ && /src/ {print $1}'`)"
+		},
+		{
+			"name": "VPNPORT",
+			"label": "Setup Port Forwarding",
+			"description": "Format '8080[;tcp|udp]'; For multiple ports, add VPNPORT_1, VPNPORT_2, etc.."
+		}
+	]
+}]

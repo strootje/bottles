@@ -3,6 +3,7 @@
 	"title": "Kodi Media Server",
 	"description": "Media Server",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/kodi-banner.png",
+	"categories": [ "linuxserver.io", "media server", "htpc" ],
 
 	"image": "linuxserver/kodi-headless",
 	"restart_policy": "unless-stopped",

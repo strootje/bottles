@@ -3,6 +3,7 @@
 	"title": "Mylar",
 	"description": "Comic Downloader",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/mylar-icon.png",
+	"categories": [ "linuxserver.io", "scrapper", "comics" ],
 
 	"image": "linuxserver/mylar",
 	"restart_policy": "unless-stopped",

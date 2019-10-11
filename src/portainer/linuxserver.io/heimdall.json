@@ -3,6 +3,7 @@
 	"title": "Heimdall",
 	"description": "Customizable homepage",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/heimdall-banner.png",
+	"categories": [ "linuxserver.io", "homepage", "startup", "links" ],
 
 	"image": "linuxserver/heimdall",
 	"restart_policy": "unless-stopped",

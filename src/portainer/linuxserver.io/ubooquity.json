@@ -3,6 +3,7 @@
 	"title": "Ubooquity",
 	"description": "Ebook Scrapper",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/ubooquity-banner.png",
+	"categories": [ "linuxserver.io", "scrapper", "ebook" ],
 
 	"image": "linuxserver/ubooquity",
 	"restart_policy": "unless-stopped",

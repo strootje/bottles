@@ -3,6 +3,7 @@
 	"title": "Transmission",
 	"description": "Torrent Downloader",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/transmission.png",
+	"categories": [ "linuxserver.io", "torrent", "downloader" ],
 
 	"image": "linuxserver/transmission",
 	"restart_policy": "unless-stopped",
