@@ -9,7 +9,8 @@
 
 		"clean:templates": "rimraf ./dist/templates.json",
 		"prebuild:templates": "run-p clean:templates",
-		"build:templates": "ts-node ./scripts/build/templates"
+		"build:templates": "ts-node ./scripts/build/templates",
+		"build:containers": "sh ./scripts/build/docker.sh"
 	},
 
 	"devDependencies": {
