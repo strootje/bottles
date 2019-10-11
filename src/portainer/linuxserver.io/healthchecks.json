@@ -8,7 +8,7 @@
 	"image": "linuxserver/healthchecks",
 	"restart_policy": "unless-stopped",
 	"ports": [
-		"3040:8000/tcp"],
+		"8000:8000/tcp"],
 	"volumes": [
 		{ "container": "/config" }],
 

@@ -4,11 +4,13 @@
 	"description": "OpenVPN for Containers",
 	"logo": "https://raw.githubusercontent.com/dperson/openvpn-client/master/logo.png",
 	"categories": [ "github.com", "dperson", "openvpn", "vpn" ],
+	"notes": "https://github.com/dperson/openvpn-client",
 
 	"image": "dperson/openvpn-client",
 	"restart_policy": "unless-stopped",
 	"volumes": [
-		{ "container": "/vpn" }],
+		{ "container": "/vpn" },
+		{ "container": "/dev/net/tun", "bind": "/dev/net/tun" }],
 
 	"env": [
 		{
@@ -23,25 +25,18 @@
 		},
 		{
 			"name": "FIREWALL",
-			"label": "FIREWALL",
-			"description": "",
-			"default": "",
-			"preset": true
+			"label": "Firewall",
+			"default": ""
 		},
 		{
 			"name": "ROUTE",
-			"label": "Allowed Network Route (ipv4)",
-			"description": "Add a route to allow replies to your private network (Try: `ip route | awk '!/ (docker0|br-)/ && /src/ {print $1}'`)"
+			"label": "Network Route (ipv4)",
+			"description": "Add a route to allow replies to your private network"
 		},
 		{
 			"name": "ROUTE6",
-			"label": "Allowed Network Route (ipv6)",
-			"description": "Add a route to allow replies to your private network (Try: `ip route | awk '!/ (docker0|br-)/ && /src/ {print $1}'`)"
-		},
-		{
-			"name": "VPNPORT",
-			"label": "Setup Port Forwarding",
-			"description": "Format '8080[;tcp|udp]'; For multiple ports, add VPNPORT_1, VPNPORT_2, etc.."
+			"label": "Network Route (ipv6)",
+			"description": "Add a route to allow replies to your private network"
 		}
 	]
 }]

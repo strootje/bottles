@@ -7,6 +7,7 @@
 
 	"image": "linuxserver/deluge",
 	"restart_policy": "unless-stopped",
+	"network": "host",
 	"volumes": [
 		{ "container": "/config" },
 		{ "container": "/downloads" }],
