@@ -3,6 +3,7 @@
 	"title": "Syncthing",
 	"description": "File Sync Server",
 	"logo": "https://syncthing.net/images/logo-horizontal.svg",
+	"categories": [ "linuxserver.io", "file", "sync", "server" ],
 
 	"image": "linuxserver/syncthing",
 	"restart_policy": "unless-stopped",

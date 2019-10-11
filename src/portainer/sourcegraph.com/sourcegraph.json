@@ -3,6 +3,8 @@
 	"title": "SourceGraph",
 	"description": "Code Search and Navigation for Developers",
 	"logo": "https://index.tnwcdn.com/images/5b13a61dc5cfd389451e474e2a0458209e2d17e7.jpg",
+	"categories": [ "sourcegraph.com", "source", "code", "indexer", "search" ],
+
 	"image": "sourcegraph/server:3.8.0",
 	"restart_policy": "unless-stopped",
 	"ports": [

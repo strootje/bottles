@@ -3,6 +3,7 @@
 	"title": "Healthchecks",
 	"description": "Service Status Checker",
 	"logo": "https://healthchecks.io/static/img/logo-full.png",
+	"categories": [ "linuxserver.io", "status", "health" ],
 
 	"image": "linuxserver/healthchecks",
 	"restart_policy": "unless-stopped",

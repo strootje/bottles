@@ -3,6 +3,7 @@
 	"title": "Deluge",
 	"description": "Torrent Downloader",
 	"logo": "https://avatars2.githubusercontent.com/u/6733935?v=3&s=200",
+	"categories": [ "linuxserver.io", "downloader", "torrents" ],
 
 	"image": "linuxserver/deluge",
 	"restart_policy": "unless-stopped",

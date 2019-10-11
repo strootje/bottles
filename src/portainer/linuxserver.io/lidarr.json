@@ -3,6 +3,7 @@
 	"title": "Lidarr",
 	"description": "Music Scrapper",
 	"logo": "https://raw.githubusercontent.com/lidarr/Lidarr/develop/Logo/400.png",
+	"categories": [ "linuxserver.io", "scrapper", "music" ],
 
 	"image": "linuxserver/lidarr",
 	"restart_policy": "unless-stopped",

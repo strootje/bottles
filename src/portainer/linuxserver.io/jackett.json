@@ -3,6 +3,7 @@
 	"title": "Jackett",
 	"description": "Usenet Index Aggregator",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/jackett-banner.png",
+	"categories": [ "linuxserver.io", "metasearch", "aggregator", "usenet" ],
 
 	"image": "linuxserver/jackett",
 	"restart_policy": "unless-stopped",

@@ -3,6 +3,7 @@
 	"title": "NZB Hydra 2",
 	"description": "Meta Search for NZB indexers",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/hydra-icon.png",
+	"categories": [ "linuxserver.io", "metasearch", "usenet" ],
 
 	"image": "linuxserver/hydra2",
 	"restart_policy": "unless-stopped",

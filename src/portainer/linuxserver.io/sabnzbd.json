@@ -3,6 +3,7 @@
 	"title": "Sabzbd",
 	"description": "Usenet Downloader",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sabnzbd-banner.png",
+	"categories": [ "linuxserver.io", "usenet", "downloader" ],
 
 	"image": "linuxserver/sabnzbd",
 	"restart_policy": "unless-stopped",

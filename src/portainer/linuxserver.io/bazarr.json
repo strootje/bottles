@@ -3,6 +3,7 @@
 	"title": "Bazarr",
 	"description": "Subtitle Scrapper",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/bazarr.png",
+	"categories": [ "linuxserver.io", "scrapper", "subtitles" ],
 
 	"image": "linuxserver/bazarr",
 	"restart_policy": "unless-stopped",

@@ -4,6 +4,7 @@
 		"title": "Nginx",
 		"description": "Server and Reverse Proxy",
 		"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-banner.png",
+		"categories": [ "linuxserver.io", "webserver", "reverse proxy" ],
 
 		"image": "linuxserver/nginx",
 		"restart_policy": "unless-stopped",

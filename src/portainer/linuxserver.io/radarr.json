@@ -3,6 +3,7 @@
 	"title": "Radarr",
 	"description": "Movie Scrapper",
 	"logo": "https://raw.githubusercontent.com/Radarr/Radarr/develop/Logo/text256.png",
+	"categories": [ "linuxserver.io", "scrapper", "movie" ],
 
 	"image": "linuxserver/radarr",
 	"restart_policy": "unless-stopped",

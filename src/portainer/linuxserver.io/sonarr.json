@@ -3,6 +3,7 @@
 	"title": "Sonarr",
 	"description": "Serie Scrapper",
 	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/sonarr-banner.png",
+	"categories": [ "linuxserver.io", "scrapper", "serie", "show" ],
 
 	"image": "linuxserver/sonarr",
 	"restart_policy": "unless-stopped",
