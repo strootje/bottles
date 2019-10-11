@@ -6,10 +6,11 @@
 	"categories": [ "github.com", "dperson", "openvpn", "vpn" ],
 	"notes": "https://github.com/dperson/openvpn-client",
 
-	"image": "dperson/openvpn-client",
+	"image": "strootje/openvpn-client",
 	"restart_policy": "unless-stopped",
 	"volumes": [
 		{ "container": "/vpn" },
+		{ "container": "/etc/stunnel" },
 		{ "container": "/dev/net/tun", "bind": "/dev/net/tun" }],
 
 	"env": [
