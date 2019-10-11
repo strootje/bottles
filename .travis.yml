@@ -1,6 +1,9 @@
 language: node_js
 node_js: lts/*
 
+services:
+  - docker
+
 cache:
   npm: true
   directories:
@@ -13,9 +16,13 @@ script:
 - pnpm run build
 
 deploy:
-  provider: surge
+- provider: surge
   project: ./dist/
   domain: bottles.surge.sh
   skip_cleanup: true
+  on:
+    branch: master
+- provider: script
+  script: bash ./scripts/deploy/docker.sh
   on:
     branch: master
