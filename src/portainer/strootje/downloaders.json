@@ -25,7 +25,7 @@
 			"name": "TZ",
 			"label": "Timezone",
 			"default": "Europe/Amsterdam"
-		}
+		},
 		{
 			"name": "ROUTE",
 			"label": "Network Route (ipv4)",
