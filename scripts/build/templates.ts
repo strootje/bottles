@@ -5,6 +5,12 @@ import { Path } from '../utils/Path';
 interface Template {
 }
 
+const logIfError = (err: any) => {
+	if (err) {
+		console.error(err);
+	}
+}
+
 (async () => {
 
 	const basepath = Path.Src('portainer');
@@ -23,7 +29,7 @@ interface Template {
 		}
 	}
 
-	mkdir(Path.Dist(), { recursive: true }, console.error);
-	writeFile(Path.Dist('templates.json'), JSON.stringify(result), console.error);
+	mkdir(Path.Dist(), { recursive: true }, logIfError);
+	writeFile(Path.Dist('templates.json'), JSON.stringify(result), logIfError);
 
 })();

@@ -1,0 +1,69 @@
+version: "3.7"
+
+services:
+  openvpn:
+    container_name: openvpn-privacy
+
+    image: strootje/openvpn-client
+    restart: unless-stopped
+    network_mode: 'bridge'
+    ports:
+    - '6789:6789/tcp' # nzbget
+    - '9091:9091/tcp' # transmission
+    - '51413:51413/tcp' # transmission
+    - '51413:51413/udp' # transmission
+    volumes:
+    - 'ovpn-stunnel:/etc/stunnel:ro'
+    - 'ovpn-vpn:/vpn:ro'
+    devices:
+    - '/dev/net/tun:/dev/net/tun'
+    cap_add:
+    - NET_ADMIN
+    environment:
+    - GROUPID=${PGID}
+    - TZ=${TZ}
+    - ROUTE=${ROUTE}
+
+  transmission:
+    container_name: transmission
+
+    depends_on:
+    - openvpn
+
+    image: linuxserver/transmission
+    restart: unless-stopped
+    network_mode: 'container:openvpn'
+    volumes:
+    - 'transmission-config:/config'
+    - 'transmission-downloads:/downloads'
+    - 'transmission-watch:/watch'
+    environment:
+    - PUID=${PUID}
+    - PGID=${PGID}
+    - TZ=${TZ}
+
+  nzbget:
+    container_name: nzbget
+
+    depends_on:
+    - openvpn
+
+    image: linuxserver/nzbget
+    restart: unless-stopped
+    network_mode: 'container:openvpn'
+    volumes:
+    - 'nzbget-config:/config'
+    - 'nzbget-downloads:/downloads'
+    environment:
+    - PUID=${PUID}
+    - PGID=${PGID}
+    - TZ=${TZ}
+
+volumes:
+  ovpn-stunnel:
+  ovpn-vpn:
+  transmission-config:
+  transmission-downloads:
+  transmission-watch:
+  nzbget-config:
+  nzbget-downloads:

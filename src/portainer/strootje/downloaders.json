@@ -1,0 +1,35 @@
+[{
+	"type": 2,
+	"title": "Downloaders stack",
+	"description": "Setup transmission and nzbget behind an openvpn container",
+	"logo": "https://raw.githubusercontent.com/dperson/openvpn-client/master/logo.png",
+	"categories": [ "openvpn", "nzbget", "transmission", "vpn", "downloaders", "usenet", "torrent" ],
+
+	"repository": {
+		"url": "https://github.com/strootje/bottles",
+		"stackfile": "src/portainer/strootje/downloaders/docker-compose.yml"
+	},
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "ROUTE",
+			"label": "Network Route (ipv4)",
+			"description": "Add a route to allow replies to your private network"
+		}
+	]
+}]
