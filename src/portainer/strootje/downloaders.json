@@ -28,8 +28,24 @@
 		},
 		{
 			"name": "ROUTE",
-			"label": "Network Route (ipv4)",
-			"description": "Add a route to allow replies to your private network"
-		}
+			"label": "Network Route (ipv4)"
+		},
+		{
+			"name": "ROUTE6",
+			"label": "Network Route (ipv6)"
+		},
+
+		{
+			"name": "OPENVPN_VOLUMES_DIR",
+			"label": "OpenVPN Volumes Folder"
+		},
+		{
+			"name": "TRANSMISSION_VOLUMES_DIR",
+			"label": "Transmission Volumes Folder"
+		},
+		{
+			"name": "NZBGET_VOLUMES_DIR",
+			"label": "NzbGet Volumes Folder"
+		},
 	]
 }]
