@@ -46,6 +46,6 @@
 		{
 			"name": "NZBGET_VOLUMES_DIR",
 			"label": "NzbGet Volumes Folder"
-		},
+		}
 	]
 }]
