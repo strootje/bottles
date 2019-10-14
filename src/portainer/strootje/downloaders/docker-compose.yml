@@ -1,4 +1,4 @@
-version: "3.7"
+version: "2.4"
 
 services:
   openvpn:
@@ -13,16 +13,16 @@ services:
     - '51413:51413/tcp' # transmission
     - '51413:51413/udp' # transmission
     volumes:
-    - 'ovpn-stunnel:/etc/stunnel:ro'
-    - 'ovpn-vpn:/vpn:ro'
+    - '${OPENVPN_VOLUMES_DIR}/stunnel:/etc/stunnel:ro'
+    - '${OPENVPN_VOLUMES_DIR}/vpn:/vpn:ro'
     devices:
     - '/dev/net/tun:/dev/net/tun'
     cap_add:
     - NET_ADMIN
     environment:
-    - GROUPID=${PGID}
-    - TZ=${TZ}
-    - ROUTE=${ROUTE}
+    - 'GROUPID=${PGID}'
+    - 'TZ=${TZ}'
+    - 'ROUTE=${ROUTE}'
 
   transmission:
     container_name: transmission
@@ -32,15 +32,15 @@ services:
 
     image: linuxserver/transmission
     restart: unless-stopped
-    network_mode: 'container:openvpn'
+    network_mode: 'service:openvpn'
     volumes:
     - 'transmission-config:/config'
-    - 'transmission-downloads:/downloads'
-    - 'transmission-watch:/watch'
+    - '${TRANSMISSION_VOLUMES_DIR}/downloads:/downloads'
+    - '${TRANSMISSION_VOLUMES_DIR}/watch:/watch'
     environment:
-    - PUID=${PUID}
-    - PGID=${PGID}
-    - TZ=${TZ}
+    - 'PUID=${PUID}'
+    - 'PGID=${PGID}'
+    - 'TZ=${TZ}'
 
   nzbget:
     container_name: nzbget
@@ -50,20 +50,15 @@ services:
 
     image: linuxserver/nzbget
     restart: unless-stopped
-    network_mode: 'container:openvpn'
+    network_mode: 'service:openvpn'
     volumes:
     - 'nzbget-config:/config'
-    - 'nzbget-downloads:/downloads'
+    - '${NZBGET_VOLUMES_DIR}/downloads:/downloads'
     environment:
-    - PUID=${PUID}
-    - PGID=${PGID}
-    - TZ=${TZ}
+    - 'PUID=${PUID}'
+    - 'PGID=${PGID}'
+    - 'TZ=${TZ}'
 
 volumes:
-  ovpn-stunnel:
-  ovpn-vpn:
   transmission-config:
-  transmission-downloads:
-  transmission-watch:
   nzbget-config:
-  nzbget-downloads:

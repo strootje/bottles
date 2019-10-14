@@ -1,5 +1,5 @@
 [{
-	"type": 2,
+	"type": 3,
 	"title": "Downloaders stack",
 	"description": "Setup transmission and nzbget behind an openvpn container",
 	"logo": "https://raw.githubusercontent.com/dperson/openvpn-client/master/logo.png",
