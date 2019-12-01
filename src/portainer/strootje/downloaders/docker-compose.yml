@@ -14,7 +14,7 @@ services:
     - '51413:51413/udp' # transmission
     volumes:
     - '${OPENVPN_VOLUMES_DIR}/stunnel:/etc/stunnel:ro'
-    - '${OPENVPN_VOLUMES_DIR}/vpn:/vpn:ro'
+    - '${OPENVPN_VOLUMES_DIR}/vpn:/vpn'
     devices:
     - '/dev/net/tun:/dev/net/tun'
     cap_add:
@@ -23,6 +23,7 @@ services:
     - 'GROUPID=${PGID}'
     - 'TZ=${TZ}'
     - 'ROUTE=${ROUTE}'
+    - 'FIREWALL=${FIREWALL}'
 
   transmission:
     container_name: transmission

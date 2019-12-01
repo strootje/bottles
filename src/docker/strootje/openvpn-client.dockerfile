@@ -5,7 +5,8 @@ RUN echo "http://dl-3.alpinelinux.org/alpine/edge/testing/" >> /etc/apk/reposito
    mkdir -p /run/openrc && touch /run/openrc/softlevel && \
    rm -rf /tmp/*
 
-COPY ./stunnel.sh /usr/bin/
+COPY ./*.sh /usr/bin/
+RUN chmod +x /usr/bin/*.sh
 
 VOLUME ["/etc/stunnel"]
 

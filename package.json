@@ -5,12 +5,28 @@
 
 	"scripts": {
 		"clean": "run-p clean:*",
-		"build": "run-p build:*",
+		"build": "run-p build:templates build:containers",
+
+		"clean:dist": "rimraf ./dist",
+		"clean:tmp": "rimraf ./.tmp",
+
+		"preclean:vpnconfig": "run-p clean:dist clean:tmp",
+		"clean:vpnconfig": "rimraf ./dist/vpnconfig",
+		"prebuild:vpnconfig": "run-p clean:vpnconfig",
+		"build:vpnconfig": "sh ./scripts/build/vpnconfig.sh build",
 
 		"clean:templates": "rimraf ./dist/templates.json",
 		"prebuild:templates": "run-p clean:templates",
 		"build:templates": "ts-node ./scripts/build/templates",
-		"build:containers": "sh ./scripts/build/docker.sh"
+
+		"build:containers": "sh ./scripts/build/docker.sh",
+
+		"pretest:openvpn": "run-p build:containers build:vpnconfig",
+		"test:openvpn": "docker run --rm --volume /home/bastiaan/Workspace/bottles/dist/vpn:/vpn --volume /home/bastiaan/Workspace/bottles/dist/stunnel:/etc/stunnel:ro --device /dev/net/tun:/dev/net/tun --cap-add NET_ADMIN strootje/openvpn-client -f \"443\" -r 10.0.0.0/24",
+		"fest:openvpn": "docker run --rm --volume /home/bastiaan/Workspace/bottles/dist/vpn:/vpn --volume /home/bastiaan/Workspace/bottles/dist/stunnel:/etc/stunnel:ro --device /dev/net/tun:/dev/net/tun --cap-add NET_ADMIN strootje/openvpn-client -f \"443\" -r 10.0.0.0/24",
+
+		"deploy:docker": "sh ./scripts/deploy/docker.sh",
+		"deploy:vpnconfig": "sh ./scripts/deploy/vpnconfig.sh"
 	},
 
 	"devDependencies": {
