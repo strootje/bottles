@@ -30,6 +30,16 @@
 			"name": "TZ",
 			"label": "Timezone",
 			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "gitea.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "3000"
 		}
 	]
 }]

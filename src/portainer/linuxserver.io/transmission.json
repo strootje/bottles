@@ -33,6 +33,16 @@
 			"default": "Europe/Amsterdam"
 		},
 		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "transmission.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "9091"
+		},
+		{
 			"name": "TRANSMISSION_WEB_HOME",
 			"label": "Alternate UI Options",
 			"default": "/combustion-release"

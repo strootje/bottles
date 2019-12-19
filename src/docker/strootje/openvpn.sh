@@ -109,6 +109,9 @@ firewall() { local port="${1:-1194}" docker_network="$(ip -o addr show dev eth0|
     # iptables -t nat -A POSTROUTING -o tap+ -j MASQUERADE
     # iptables -t nat -A POSTROUTING -o tun+ -j MASQUERADE
 
+    echo "================================"
+    echo "===     KILLING FIREWALL     ==="
+    echo "================================"
 
     ip6tables -F 2>/dev/null
     ip6tables -X 2>/dev/null

@@ -32,6 +32,16 @@
 			"default": "Europe/Amsterdam"
 		},
 		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "ubooquity.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "2202"
+		},
+		{
 			"name": "MAXMEM",
 			"label": "MAXMEM",
 			"default": "maxmem"
