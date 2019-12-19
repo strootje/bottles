@@ -1,0 +1,62 @@
+[{
+	"type": 1,
+	"title": "Pihole",
+	"description": "Network wide ad-blocker",
+	"logo": "https://pi-hole.github.io/graphics/Vortex/Vortex_with_text.png",
+	"categories": [ "pi-hole.net", "dns", "ad-blocker", "server" ],
+
+	"image": "pihole/pihole:latest",
+	"restart_policy": "unless-stopped",
+	"dns": [],
+	"ports": [
+		"53:53/tcp",
+		"53:53/udp",
+		"67:67/udp",
+		"80:80/tcp",
+		"443:443/tcp"],
+	"volumes": [
+		{ "container": "/etc/pihole" },
+		{ "container": "/etc/dnsmasq.d" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "pi.hole"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "80"
+		},
+		{
+			"name": "DNS1",
+			"label": "Dns 1",
+			"default": "127.0.0.1"
+		},
+		{
+			"name": "DNS2",
+			"label": "Dns 2",
+			"default": "192.168.1.1"
+		},
+		{
+			"name": "WEBPASSWORD",
+			"label": "Web Password"
+		}
+	]
+}]

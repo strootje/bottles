@@ -36,6 +36,16 @@
 			"name": "UMASK_SET",
 			"label": "UMask",
 			"default": "022"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "syncthing.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8384"
 		}
 	]
 }]

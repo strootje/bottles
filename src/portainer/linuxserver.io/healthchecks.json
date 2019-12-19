@@ -29,6 +29,16 @@
 			"default": "Europe/Amsterdam"
 		},
 		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "healthchecks.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8000"
+		},
+		{
 			"name": "SITE_ROOT",
 			"label": "Site Root",
 			"default": "SITE_ROOT"
