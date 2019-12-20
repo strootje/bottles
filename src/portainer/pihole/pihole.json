@@ -1,22 +1,14 @@
 [{
-	"type": 1,
+	"type": 3,
 	"title": "Pihole",
 	"description": "Network wide ad-blocker",
 	"logo": "https://pi-hole.github.io/graphics/Vortex/Vortex_with_text.png",
 	"categories": [ "pi-hole.net", "dns", "ad-blocker", "server" ],
 
-	"image": "pihole/pihole:latest",
-	"restart_policy": "unless-stopped",
-	"dns": [],
-	"ports": [
-		"53:53/tcp",
-		"53:53/udp",
-		"67:67/udp",
-		"80:80/tcp",
-		"443:443/tcp"],
-	"volumes": [
-		{ "container": "/etc/pihole" },
-		{ "container": "/etc/dnsmasq.d" }],
+	"repository": {
+		"url": "https://github.com/strootje/bottles",
+		"stackfile": "src/portainer/pihole/pihole/docker-compose.yml"
+	},
 
 	"env": [
 		{

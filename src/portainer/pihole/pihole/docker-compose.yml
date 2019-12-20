@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  openvpn:
+    container_name: openvpn-privacy
+
+    image: strootje/openvpn-client
+    restart: unless-stopped
+    network_mode: 'bridge'
+    ports:
+    - '53:53/tcp'
+    - '53:53/udp'
+    - '67:67/udp'
+    - '80:80/tcp'
+    - '443:443/tcp'
+    dns:
+    - '127.0.0.1'
+    - '1.1.1.1'
+    volumes:
+    - '${PIHOLE_VOLUMES_DIR}/data:/etc/pihole'
+    - '${PIHOLE_VOLUMES_DIR}/dnsmasq:/etc/dnsmasq.d'
+    environment:
+    - 'PUID=${PUID}'
+    - 'PGID=${PGID}'
+    - 'TZ=${TZ}'
+    - 'VIRTUAL_HOST=${VIRTUAL_HOST}'
+    - 'VIRTUAL_PORT=${VIRTUAL_PORT}'
+    - 'DNS1=${DNS1}'
+    - 'DNS2=${DNS2}'
+    - 'WEBPASSWORD=${WEBPASSWORD}'
