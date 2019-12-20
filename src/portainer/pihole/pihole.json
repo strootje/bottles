@@ -39,20 +39,21 @@
 		{
 			"name": "DNS1",
 			"label": "Dns 1",
-			"default": "127.0.0.1"
+			"default": "51.15.98.97"
 		},
 		{
 			"name": "DNS2",
 			"label": "Dns 2",
-			"default": "192.168.1.1"
-		},
-		{
-			"name": "WEBPASSWORD",
-			"label": "Web Password"
+			"default": "178.62.107.4"
 		},
 		{
 			"name": "PIHOLE_VOLUMES_DIR",
-			"label": "Pihole Volumes Folder"
-		}
+			"label": "Pihole Volumes Folder",
+			"default": "/opt/docker/pihole/pihole"
+		},
+                {
+                        "name": "WEBPASSWORD",
+                        "label": "Web Password"
+                }
 	]
 }]
