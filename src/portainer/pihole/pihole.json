@@ -49,6 +49,10 @@
 		{
 			"name": "WEBPASSWORD",
 			"label": "Web Password"
+		},
+		{
+			"name": "PIHOLE_VOLUMES_DIR",
+			"label": "Pihole Volumes Folder"
 		}
 	]
 }]
