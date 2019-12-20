@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  openvpn:
-    container_name: openvpn-privacy
+  pihole:
+    container_name: pihole
 
     image: strootje/openvpn-client
     restart: unless-stopped
