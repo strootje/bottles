@@ -8,7 +8,7 @@ services:
     network_mode: 'bridge'
     volumes:
     - '/var/run/docker.dock:/tmp/docker.sock:ro'
-    - '${NGINX_VOLUMES}/config/keys:/etc/nginx/certs'
+    - '${NGINX_VOLUMES_DIR}/config/keys:/etc/nginx/certs'
     environment:
     - 'PUID=${PUID}'
     - 'PGID=${PGID}'

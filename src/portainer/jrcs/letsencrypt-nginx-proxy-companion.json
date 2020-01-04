@@ -33,6 +33,11 @@
 		{
 			"name": "DEFAULT_EMAIL",
 			"label": "Default Email"
+		},
+		{
+			"name": "NGINX_VOLUMES_DIR",
+			"label": "Nginx Volumes Folder",
+			"default": "/opt/docker/nginx/reverse-proxy"
 		}
 	]
 }]
