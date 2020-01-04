@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+   db:
+     container_name: 'nginx-proxy-manager-database'
+     image: mariadb
+     restart: unless-stopped
+     volumes:
+     - ${NGINX_MANAGER_VOLUMES_DIR}/data/mysql:/var/lib/mysql
+     environment:
+     - 'MYSQL_ROOT_PASSWORD=npm'
+     - 'MYSQL_DATABASE=npm'
+     - 'MYSQL_USER=npm'
+     - 'MYSQL_PASSWORD=npm'
+
+  app:
+    container_name: 'nginx-proxy-manager'
+    depends_on:
+    - db
+    image: jc21/nginx-proxy-manager:latest
+    restart: unless-stopped
+    ports:
+    - '${NGINX_MANAGER_PORT_HTTP}:80/tcp'
+    - '${NGINX_MANAGER_PORT_HTTPS}:443/tcp'
+    - '81:81/tcp'
+    volumes:
+    - './config.json:/app/config/production.json'
+    - '${NGINX_MANAGER_VOLUMES_DIR}/data:/data'
+    - '${NGINX_MANAGER_VOLUMES_DIR}/letsencrypt:/etc/letsencrypt'
+    environment:
+    - 'PUID=${PUID}'
+    - 'PGID=${PGID}'
+    - 'TZ=${TZ}'
