@@ -7,8 +7,8 @@ services:
     restart: unless-stopped
     network_mode: 'bridge'
     volumes:
-    - '/tmp/docker.sock:/var/run/docker.dock:ro'
-    - '/etc/nginx/certs:${NGINX_VOLUMES}/config/keys'
+    - '/var/run/docker.dock:/tmp/docker.sock:ro'
+    - '${NGINX_VOLUMES}/config/keys:/etc/nginx/certs'
     environment:
     - 'PUID=${PUID}'
     - 'PGID=${PGID}'
