@@ -38,6 +38,11 @@
 			"name": "VIRTUAL_PORT",
 			"label": "Virtual host port",
 			"default": "80"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "heimdall.local"
 		}
 	]
 }]

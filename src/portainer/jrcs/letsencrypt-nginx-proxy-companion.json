@@ -1,0 +1,38 @@
+[{
+	"type": 3,
+	"title": "JrCs Let's Encrypt Nginx Proxy Companion",
+	"description": "Automatic Ssl Certificate renewal",
+	"logo": "https://letsencrypt.org/images/letsencrypt-logo-horizontal.svg",
+	"categories": [ "jwilder", "nginx", "webserver", "reverse proxy" ],
+
+	"repository": {
+		"url": "https://github.com/strootje/bottles",
+		"stackfile": "src/portainer/jrcs/letsencrypt-nginx-proxy-companion/docker-compose.yml"
+	},
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "DEFAULT_HOST",
+			"label": "Default virtual host"
+		},
+		{
+			"name": "DEFAULT_EMAIL",
+			"label": "Default Email"
+		}
+	]
+}]

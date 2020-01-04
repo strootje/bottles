@@ -42,6 +42,11 @@
 			"default": "2202"
 		},
 		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "ubooquity.local"
+		},
+		{
 			"name": "MAXMEM",
 			"label": "MAXMEM",
 			"default": "maxmem"

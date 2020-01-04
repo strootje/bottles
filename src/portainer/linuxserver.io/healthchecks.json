@@ -39,6 +39,11 @@
 			"default": "8000"
 		},
 		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "healthchecks.local"
+		},
+		{
 			"name": "SITE_ROOT",
 			"label": "Site Root",
 			"default": "SITE_ROOT"

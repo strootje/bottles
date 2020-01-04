@@ -38,6 +38,11 @@
 			"name": "VIRTUAL_PORT",
 			"label": "Virtual host port",
 			"default": "6789"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "nzbget.local"
 		}
 	]
 }]

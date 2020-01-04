@@ -40,6 +40,11 @@
 			"name": "VIRTUAL_PORT",
 			"label": "Virtual host port",
 			"default": "3000"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "gitea.local"
 		}
 	]
 }]

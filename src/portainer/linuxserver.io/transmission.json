@@ -43,6 +43,11 @@
 			"default": "9091"
 		},
 		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "transmission.local"
+		},
+		{
 			"name": "TRANSMISSION_WEB_HOME",
 			"label": "Alternate UI Options",
 			"default": "/combustion-release"
