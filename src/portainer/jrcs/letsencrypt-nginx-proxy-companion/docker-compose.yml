@@ -22,6 +22,8 @@ services:
 
   letsencrypt:
     container_name: letsencrypt-nginx-proxy-companion
+    depends_on:
+    - nginx
     image: jrcs/letsencrypt-nginx-proxy-companion:latest
     restart: unless-stopped
     network_mode: 'bridge'
