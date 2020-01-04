@@ -11,6 +11,8 @@ services:
     - '443:443/tcp'
     volumes:
     - '/var/run/docker.sock:/tmp/docker.sock:ro'
+    - '/etc/nginx/vhost.d'
+    - '/usr/share/nginx/html'
     - '${NGINX_VOLUMES_DIR}/config/keys:/etc/nginx/certs'
     environment:
     - 'PUID=${PUID}'
