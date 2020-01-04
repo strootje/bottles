@@ -1,17 +1,17 @@
 version: '2'
 
 services:
-   db:
-     container_name: 'nginx-proxy-manager-database'
-     image: mariadb
-     restart: unless-stopped
-     volumes:
-     - ${NGINX_MANAGER_VOLUMES_DIR}/data/mysql:/var/lib/mysql
-     environment:
-     - 'MYSQL_ROOT_PASSWORD=npm'
-     - 'MYSQL_DATABASE=npm'
-     - 'MYSQL_USER=npm'
-     - 'MYSQL_PASSWORD=npm'
+  db:
+    container_name: 'nginx-proxy-manager-database'
+    image: mariadb
+    restart: unless-stopped
+    volumes:
+    - ${NGINX_MANAGER_VOLUMES_DIR}/data/mysql:/var/lib/mysql
+    environment:
+    - 'MYSQL_ROOT_PASSWORD=npm'
+    - 'MYSQL_DATABASE=npm'
+    - 'MYSQL_USER=npm'
+    - 'MYSQL_PASSWORD=npm'
 
   app:
     container_name: 'nginx-proxy-manager'
