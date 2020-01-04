@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  nginx:
+    container_name: nginx-proxy
+    image: jwilder/nginx-proxy:alpine
+    restart: unless-stopped
+    network_mode: 'bridge'
+    volumes:
+    - '/tmp/docker.sock:/var/run/docker.dock:ro'
+    - '/etc/nginx/certs:${NGINX_VOLUMES}/config/keys'
+    environment:
+    - 'PUID=${PUID}'
+    - 'PGID=${PGID}'
+    - 'TZ=${TZ}'
+    - 'DEFAULT_HOST=${DEFAULT_HOST}'
+
+  letsencrypt:
+    container_name: letsencrypt-nginx-proxy-companion
+    image: jrcs/letsencrypt-nginx-proxy-companion:latest
+    restart: unless-stopped
+    network_mode: 'bridge'
+    volumes:
+    - '/var/run/docker.sock:/var/run/docker.sock:ro'
+    volumes_from:
+    - nginx
+    environment:
+    - 'PUID=${PUID}'
+    - 'PGID=${PGID}'
+    - 'TZ=${TZ}'
+    - 'DEFAULT_EMAIL=${DEFAULT_EMAIL}'

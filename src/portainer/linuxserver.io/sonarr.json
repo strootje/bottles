@@ -39,6 +39,11 @@
 			"name": "VIRTUAL_PORT",
 			"label": "Virtual host port",
 			"default": "8989"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "sonarr.local"
 		}
 	]
 }]

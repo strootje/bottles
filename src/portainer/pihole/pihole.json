@@ -37,6 +37,11 @@
 			"default": "80"
 		},
 		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "pi.hole"
+		},
+		{
 			"name": "DNS1",
 			"label": "Dns 1",
 			"default": "51.15.98.97"
