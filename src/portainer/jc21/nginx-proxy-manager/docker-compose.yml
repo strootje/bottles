@@ -20,8 +20,8 @@ services:
     image: jc21/nginx-proxy-manager:latest
     restart: unless-stopped
     ports:
-    - '${NGINX_MANAGER_PORT_HTTP}:80/tcp'
-    - '${NGINX_MANAGER_PORT_HTTPS}:443/tcp'
+    - '7080:80/tcp'
+    - '70443:443/tcp'
     - '81:81/tcp'
     volumes:
     - './config.json:/app/config/production.json'

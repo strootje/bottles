@@ -1,7 +1,7 @@
 [{
 	"type": 3,
-	"title": "JrCs Let's Encrypt Nginx Proxy Companion",
-	"description": "Automatic Ssl Certificate renewal",
+	"title": "Nginx Proxy Manager",
+	"description": "Manager for Nginx proxies",
 	"logo": "https://camo.githubusercontent.com/622e5df3bc7efe12c597bb943e1444bca228cdd8/68747470733a2f2f7075626c69632e6a6332312e636f6d2f6e67696e782d70726f78792d6d616e616765722f6769746875622e706e67",
 	"categories": [ "jc21", "nginx", "manager", "reverse proxy" ],
 
