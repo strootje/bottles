@@ -17,12 +17,12 @@
 
 	"env": [
 		{
-			"name": "PUID",
+			"name": "USER_UID",
 			"label": "Portainer User ID",
 			"default": "1001"
 		},
 		{
-			"name": "PGID",
+			"name": "USER_GID",
 			"label": "Portainer Group ID",
 			"default": "1001"
 		},
