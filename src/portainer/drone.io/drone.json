@@ -32,7 +32,7 @@
 		{
 			"name": "VIRTUAL_HOST",
 			"label": "Virtual host name",
-			"default": "gitea.local"
+			"default": "drone.local"
 		},
 		{
 			"name": "VIRTUAL_PORT",
@@ -42,7 +42,7 @@
 		{
 			"name": "LETSENCRYPT_HOST",
 			"label": "Let's Encrypt Host",
-			"default": "gitea.local"
+			"default": "drone.local"
 		},
 		{
 			"name": "DRONE_AGENTS_ENABLED",
