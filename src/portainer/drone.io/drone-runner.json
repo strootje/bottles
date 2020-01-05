@@ -1,0 +1,54 @@
+[{
+	"type": 1,
+	"title": "Drone Runner Docker",
+	"description": "Drone build agent for docker",
+	"logo": "https://drone.io/images/logo-f06b66939d.svg",
+	"categories": [ "drone.io", "automation", "testing", "delivery", "ci", "cd", "agent" ],
+
+	"image": "drone/drone-runner-docker:latest",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"3000:3000/tcp"],
+		"volumes": [
+			{ "container": "/var/run/docker.sock", "bind": "/var/run/docker.sock", "readonly": true }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "DRONE_RPC_PROTO",
+			"label": "Drone (Shared) Proto",
+			"default": "https"
+		},
+		{
+			"name": "DRONE_RPC_HOST",
+			"label": "Drone (Shared) Host"
+		},
+		{
+			"name": "DRONE_RPC_SECRET",
+			"label": "Drone (Shared) Secret"
+		},
+		{
+			"name": "DRONE_RUNNER_CAPACITY",
+			"label": "Runner Capacity"
+		},
+		{
+			"name": "DRONE_RUNNER_NAME",
+			"label": "Runner Name",
+			"default": "${HOSTNAME}"
+		}
+	]
+}]

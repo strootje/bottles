@@ -1,0 +1,78 @@
+[{
+	"type": 1,
+	"title": "Drone",
+	"description": "Automate Software, Testing and Delivery",
+	"logo": "https://drone.io/images/logo-f06b66939d.svg",
+	"categories": [ "drone.io", "automation", "testing", "delivery", "ci", "cd" ],
+
+	"image": "drone/drone:latest",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"80:80/tcp",
+		"443:443/tcp"],
+		"volumes": [
+			{ "container": "/data" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "gitea.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "3000"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "gitea.local"
+		},
+		{
+			"name": "DRONE_AGENTS_ENABLED",
+			"label": "Use Drone Agents",
+			"default": "true"
+		},
+		{
+			"name": "DRONE_GITEA_SERVER",
+			"label": "Gitea Server"
+		},
+		{
+			"name": "DRONE_GITEA_CLIENT_ID",
+			"label": "Gitea Client Id"
+		},
+		{
+			"name": "DRONE_GITEA_CLIENT_SECRET",
+			"label": "Gitea Client Secret"
+		},
+		{
+			"name": "DRONE_RPC_SECRET",
+			"label": "Drone (Shared) Secret"
+		},
+		{
+			"name": "DRONE_SERVER_HOST",
+			"label": "Server Host"
+		},
+		{
+			"name": "DRONE_SERVER_PROTO",
+			"label": "Http(s) Schema",
+			"default": "https"
+		}
+	]
+}]
