@@ -1,0 +1,53 @@
+[{
+	"type": 1,
+	"title": "Calibre Web",
+	"description": "Ebook Manager",
+	"logo": "https://ci.linuxserver.io/view/all/job/Docker-Pipeline-Builders/job/docker-calibre-web/job/master/badge/icon?style=flat-square",
+	"categories": [ "linuxserver.io", "calibre", "web", "ebook" ],
+
+	"image": "linuxserver/calibre-web",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8083:8083/tcp"],
+	"volumes": [
+		{ "container": "/config" },
+		{ "container": "/books" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "calibre.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8083"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "calibre.local"
+		},
+		{
+			"name": "DOCKER_MODS",
+			"label": "Docker Mods",
+			"default": "linuxserver/calibre-web:calibre"
+		}
+	]
+}]

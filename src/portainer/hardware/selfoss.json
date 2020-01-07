@@ -1,0 +1,67 @@
+[{
+	"type": 1,
+	"title": "Selfoss",
+	"description": " new multipurpose rss reader, live stream, mashup, aggregation web application",
+	"logo": "https://i.imgur.com/8hJyBgk.png",
+	"categories": [ "hardware", "selfoss", "rss", "aggregator" ],
+
+	"image": "hardware/selfoss",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8888:8888/tcp"],
+	"volumes": [
+		{ "container": "/selfoss/data" }],
+
+	"env": [
+		{
+			"name": "UID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "GID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "selfoss.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8083"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "selfoss.local"
+		},
+		{
+			"name": "CRON_PERIOD",
+			"label": "Cronjob period for updating feeds",
+			"default": "15m"
+		},
+		{
+			"name": "UPLOAD_MAX_SIZE",
+			"label": "Attachment size limit",
+			"default": "25M"
+		},
+		{
+			"name": "LOG_TO_STDOUT",
+			"label": "Enable nginx and php error logs to stdout",
+			"default": "false"
+		},
+		{
+			"name": "MEMORY_LIMIT",
+			"label": "PHP memory limit",
+			"default": "128MB"
+		}
+	]
+}]
