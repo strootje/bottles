@@ -1,0 +1,23 @@
+---
+kind: pipeline
+name: default
+
+trigger:
+  branch:
+  - master
+
+steps:
+- name: install
+  image: node
+  commands:
+  - npx pnpm i
+
+- name: build
+  image: node
+  commands:
+  - npx pnpm run build
+
+- name: deploy
+  image: node
+  commands:
+  - pnpx surge /drone/src/dist/ bottles.surge.sh
