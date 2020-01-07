@@ -61,7 +61,7 @@
 		{
 			"name": "MEMORY_LIMIT",
 			"label": "PHP memory limit",
-			"default": "128MB"
+			"default": "128M"
 		}
 	]
 }]
