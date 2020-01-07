@@ -15,7 +15,7 @@ steps:
 - name: build
   image: node
   commands:
-  - npx pnpm run build
+  - npx pnpm run build:templates
 
 - name: deploy
   image: node
