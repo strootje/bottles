@@ -20,4 +20,4 @@ steps:
 - name: deploy
   image: node
   commands:
-  - npx surge --login ${SURGE_LOGIN} --token ${SURGE_TOKEN} /drone/src/dist/ bottles.surge.sh
+  - npx surge --token ${SURGE_TOKEN} /drone/src/dist/ bottles.surge.sh
