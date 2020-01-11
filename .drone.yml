@@ -8,17 +8,17 @@ trigger:
 
 steps:
 - name: install
-  image: node
+  image: node:alpine
   commands:
   - npx pnpm i
 
 - name: build
-  image: node
+  image: node:alpine
   commands:
   - npx pnpm run build:templates
 
 - name: deploy
-  image: node
+  image: node:alpine
   commands:
   - npx surge /drone/src/dist/ bottles.surge.sh
   environment:
