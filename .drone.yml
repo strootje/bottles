@@ -14,17 +14,17 @@ steps:
 
 - name: build
   image: node:alpine
-  volumes:
-  - name: artifact
-    path: /drone/src/dist
+  # volumes:
+  # - name: artifact
+  #   path: /drone/src/dist
   commands:
   - npx pnpm run build:templates
 
 - name: deploy
   image: node:alpine
-  volumes:
-  - name: artifact
-    path: /drone/src/dist
+  # volumes:
+  # - name: artifact
+  #   path: /drone/src/dist
   commands:
   - npx surge /drone/src/dist/ bottles.surge.sh
   environment:
@@ -33,6 +33,6 @@ steps:
     SURGE_TOKEN:
       from_secret: SURGE_TOKEN
 
-volumes:
-- name: artifact
-  temp: {}
+# volumes:
+# - name: artifact
+#   temp: {}
