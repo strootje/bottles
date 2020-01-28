@@ -1,0 +1,57 @@
+[{
+	"type": 3,
+	"title": "Ackee",
+	"description": "Self-hosted, Node.js based analytics tool for those who care about privacy",
+	"categories": [ "ackee", "analytics", "tracking", "website" ],
+
+	"repository": {
+		"url": "https://github.com/electerious/Ackee",
+		"stackfile": "docker-compose.yml"
+	},
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "ackee.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "3000"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "ackee.local"
+		},
+		{
+			"name": "ACKEE_VOLUMES_DIR",
+			"label": "Ackee Volumes Folder",
+			"default": "/opt/docker/ackee/ackee"
+		},
+		{
+			"name": "ACKEE_USERNAME",
+			"label": "Ackee Username"
+		},
+		{
+			"name": "ACKEE_PASSWORD",
+			"label": "Ackee Password"
+		}
+	]
+}]
