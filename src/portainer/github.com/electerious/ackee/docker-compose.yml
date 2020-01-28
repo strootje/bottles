@@ -20,10 +20,6 @@ services:
     restart: unless-stopped
     ports:
     - '3030:3000'
-    volumes:
-    - '/var/run/docker.sock:/var/run/docker.sock:ro'
-    volumes_from:
-    - nginx
     environment:
     - 'PUID=${PUID}'
     - 'PGID=${PGID}'
