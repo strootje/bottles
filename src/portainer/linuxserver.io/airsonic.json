@@ -1,0 +1,60 @@
+[{
+	"type": 1,
+	"title": "Airsonic",
+	"description": "Music Platform",
+	"logo": "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/airsonic-banner.png",
+	"categories": [ "linuxserver.io", "Music", "Podcast", "streaming" ],
+
+	"image": "linuxserver/airsonic",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"4040:4040/tcp"],
+	"volumes": [
+		{ "container": "/dev/snd", "bind": "/dev/snd", "readonly": true },
+		{ "container": "/config" },
+		{ "container": "/music" },
+		{ "container": "/playlists" },
+		{ "container": "/podcasts" },
+		{ "container": "/media" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "airsonic.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "4040"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "airsonic.local"
+		},
+		{
+			"name": "CONTEXT_PATH",
+			"label": "Context Path (optional `URL_BASE`)"
+		},
+		{
+			"name": "JAVA_OPTS",
+			"label": "Java Options (optional `options`)"
+		}
+	]
+}]
