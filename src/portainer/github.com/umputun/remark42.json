@@ -1,0 +1,213 @@
+[{
+	"type": 1,
+	"title": "Remark42",
+	"description": "Remark42 is a self-hosted, lightweight, and simple (yet functional) comment engine",
+	"categories": [ "umputun", "website", "comments" ],
+
+	"image": "umputun/remark42:latest",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8080:8080/tcp"],
+	"volumes": [
+		{ "container": "/srv/data" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "remark.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8080"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "remark.local"
+		},
+		{
+			"name": "DEBUG",
+			"label": "Run in debug mode",
+			"default": "false"
+		},
+		{
+			"name": "STIE",
+			"label": "Remark Site Name (multiple)"
+		},
+		{
+			"name": "REMARK_URL",
+			"label": "Remark Url (should be the same as VIRTUAL_HOST)",
+			"default": "remark.local"
+		},
+		{
+			"name": "ADMIN_SHARED_ID",
+			"label": "Remark Admin Shared Id (multiple)"
+		},
+		{
+			"name": "ADMIN_SHARED_EMAIL",
+			"label": "Remark Admin Shared Email"
+		},
+		{
+			"name": "ADMIN_PASSWD",
+			"label": "Remark Admin Password"
+		},
+		{
+			"name": "SECRET",
+			"label": "Remark Secret"
+		},
+		{
+			"name": "STORE_BOLT_PATH",
+			"label": "Remark Bolt Store Path",
+			"default": "/srv/var/db"
+		},
+		{
+			"name": "BACKUP_PATH",
+			"label": "Remark Backup Path",
+			"default": "/srv/var/backup"
+		},
+		{
+			"name": "EMOJI",
+			"label": "Remark Emoji Support",
+			"default": "false"
+		},
+		{
+			"name": "SIMPLE_VIEIW",
+			"label": "Remark Simple View",
+			"default": "false"
+		},
+		{
+			"name": "RESTRICTED_WORDS",
+			"label": "Remark Restricted Words"
+		},
+		{
+			"name": "MAX_COMMENT_SIZE",
+			"label": "Remark Max Comment Size",
+			"default": "2048"
+		},
+		{
+			"name": "MAX_VOTES",
+			"label": "Remark Max Votes per comment (-1 is unlimited)",
+			"default": "-1"
+		},
+		{
+			"name": "IP_VOTES",
+			"label": "Remark Ip Votes (restrict votes per ip)",
+			"default": "-1"
+		},
+		{
+			"name": "ANON_VOTE",
+			"label": "Remark Anonymous can also vote (requires IP_VOTES)",
+			"default": "-1"
+		},
+		{
+			"name": "LOW_SCORE",
+			"label": "Remark Low Score Threshold",
+			"default": "-5"
+		},
+		{
+			"name": "CRITICAL_SCORE",
+			"label": "Remark Critical Score Threshold",
+			"default": "-10"
+		},
+		{
+			"name": "POSITIVE_SCORE",
+			"label": "Remark Restrict votes to be positive only",
+			"default": "false"
+		},
+		{
+			"name": "SMTP_HOST",
+			"label": "Remark SMTP Host"
+		},
+		{
+			"name": "SMTP_PORT",
+			"label": "Remark SMTP Port"
+		},
+		{
+			"name": "SMTP_USERNAME",
+			"label": "Remark SMTP Username"
+		},
+		{
+			"name": "SMTP_PASSWORD",
+			"label": "Remark SMTP Password"
+		},
+		{
+			"name": "SMTP_TLS",
+			"label": "Remark SMTP Tls"
+		},
+		{
+			"name": "SMTP_TIMEOUT",
+			"label": "Remark SMTP Timeout",
+			"default": "10s"
+		},
+		{
+			"name": "AUTH_ANON",
+			"label": "Remark Anonymous Login",
+			"default": "false"
+		},
+		{
+			"name": "AUTH_GOOGLE_CID",
+			"label": "Remark Google Client Id"
+		},
+		{
+			"name": "AUTH_GOOGLE_CSEC",
+			"label": "Remark Google Client Secret"
+		},
+		{
+			"name": "AUTH_FACEBOOK_CID",
+			"label": "Remark Facebook Client Id"
+		},
+		{
+			"name": "AUTH_FACEBOOK_CSEC",
+			"label": "Remark Facebook Client Secret"
+		},
+		{
+			"name": "AUTH_DISQUS_CID",
+			"label": "Remark Disqus Client Id"
+		},
+		{
+			"name": "AUTH_DISQUS_CSEC",
+			"label": "Remark Disqus Client Secret"
+		},
+		{
+			"name": "AUTH_GITHUB_CID",
+			"label": "Remark Github Client Id"
+		},
+		{
+			"name": "AUTH_GITHUB_CSEC",
+			"label": "Remark Github Client Secret"
+		},
+		{
+			"name": "AUTH_TWITTER_CID",
+			"label": "Remark Twitter Client Id"
+		},
+		{
+			"name": "AUTH_TWITTER_CSEC",
+			"label": "Remark Twitter Client Secret"
+		},
+		{
+			"name": "AUTH_YANDEX_CID",
+			"label": "Remark Yandex Client Id"
+		},
+		{
+			"name": "AUTH_YANDEX_CSEC",
+			"label": "Remark Yandex Client Secret"
+		}
+	]
+}]

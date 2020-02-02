@@ -1,0 +1,56 @@
+[{
+	"type": 1,
+	"title": "Calibre",
+	"description": "Ebook Manager Backend",
+	"logo": "https://raw.githubusercontent.com/kovidgoyal/calibre/master/resources/images/lt.png",
+	"categories": [ "linuxserver.io", "calibre", "ebook" ],
+
+	"image": "linuxserver/calibre",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"8080:8080/tcp",
+		"8081:8081/tcp"],
+	"volumes": [
+		{ "container": "/config" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "calibre.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8083"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "calibre.local"
+		},
+		{
+			"name": "GUAC_USER",
+			"label": "Guac Username (desktop gui)"
+		},
+		{
+			"name": "GUAC_PASS",
+			"label": "Guac Password (desktop gui, md5 hash)"
+		}
+	]
+}]

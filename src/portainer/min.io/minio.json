@@ -1,0 +1,56 @@
+[{
+	"type": 1,
+	"title": "Minio",
+	"description": "Large Objectstore",
+	"logo": "https://min.io/resources/img/logo/MINIO_wordmark.png",
+	"categories": [ "min.io", "storage", "blob" ],
+
+	"image": "minio/minio",
+	"command": "server /data",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"9000:9000/tcp"],
+	"volumes": [
+		{ "container": "/data" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "mylar.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "8090"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "mylar.local"
+		},
+		{
+			"name": "MINIO_ACCESS_KEY",
+			"label": "Minio Access Key"
+		},
+		{
+			"name": "MINIO_SECRET_KEY",
+			"label": "Minio Secret Key"
+		}
+	]
+}]
