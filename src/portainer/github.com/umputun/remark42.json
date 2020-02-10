@@ -13,17 +13,17 @@
 
 	"env": [
 		{
-			"name": "PUID",
+			"name": "APP_UID",
 			"label": "Portainer User ID",
 			"default": "1001"
 		},
 		{
-			"name": "PGID",
+			"name": "APP_GID",
 			"label": "Portainer Group ID",
 			"default": "1001"
 		},
 		{
-			"name": "TZ",
+			"name": "TIME_ZONE",
 			"label": "Timezone",
 			"default": "Europe/Amsterdam"
 		},
