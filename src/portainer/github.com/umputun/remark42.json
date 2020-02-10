@@ -18,7 +18,7 @@
 			"default": "1001"
 		},
 		{
-			"name": "APP_GID",
+			"name": "DOCKER_GID",
 			"label": "Portainer Group ID",
 			"default": "1001"
 		},
@@ -48,8 +48,12 @@
 			"default": "false"
 		},
 		{
-			"name": "STIE",
+			"name": "SITE",
 			"label": "Remark Site Name (multiple)"
+		},
+		{
+			"name": "SECRET",
+			"label": "Remark Secret"
 		},
 		{
 			"name": "REMARK_URL",
@@ -69,10 +73,6 @@
 			"label": "Remark Admin Password"
 		},
 		{
-			"name": "SECRET",
-			"label": "Remark Secret"
-		},
-		{
 			"name": "STORE_BOLT_PATH",
 			"label": "Remark Bolt Store Path",
 			"default": "/srv/var/db"
@@ -88,7 +88,7 @@
 			"default": "false"
 		},
 		{
-			"name": "SIMPLE_VIEIW",
+			"name": "SIMPLE_VIEW",
 			"label": "Remark Simple View",
 			"default": "false"
 		},
@@ -159,6 +159,11 @@
 		{
 			"name": "AUTH_ANON",
 			"label": "Remark Anonymous Login",
+			"default": "false"
+		},
+		{
+			"name": "AUTH_DEV",
+			"label": "Remark Dev (Oauth2) Login",
 			"default": "false"
 		},
 		{
