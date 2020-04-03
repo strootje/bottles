@@ -1,0 +1,18 @@
+language: node_js
+node_js: lts/*
+
+cache:
+  npm: true
+  directories:
+  - $HOME/.pnpm-store/
+
+script:
+- npx pnpm run build
+
+deploy:
+- provider: surge
+  project: ./dist/
+  domain: bottles.surge.sh
+  skip_cleanup: true
+  on:
+    branch: master
