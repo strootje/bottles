@@ -18,7 +18,7 @@ steps:
   # - name: artifact
   #   path: /drone/src/dist
   commands:
-  - npx pnpm run build:templates
+  - npx pnpm run build
 
 - name: deploy
   image: node:alpine
