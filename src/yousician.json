@@ -1,0 +1,60 @@
+{
+	"type": "wine",
+	"name": "yousician",
+	"version": "1.0.0-beta",
+	"architecture": "i386",
+	"description": "Yousician",
+	"tags": [
+		"yousician",
+		"music",
+		"guitar",
+		"keyboard",
+		"learning",
+		"education"
+	],
+	"links": {
+		"homepage": "https://yousician.com/",
+		"repository": "https://github.com/strootje/bottles",
+		"issues": "https://github.com/strootje/bottles/issues"
+	},
+	"author": {
+		"name": "Bastiaan",
+		"homepage": "https://strootje.com"
+	},
+	"contributors": [],
+	"steps": {
+		"launch": [
+			{
+				"type": "winetricks",
+				"add": "win7"
+			},
+			{
+				"type": "wine:start",
+				"file": "<TODO>"
+			}
+		],
+		"install": [
+			{
+				"type": "winetricks",
+				"add": "corefonts"
+			},
+			{
+				"type": "winetricks",
+				"add": "vcrun2017"
+			},
+			{
+				"type": "winetricks",
+				"add": "win7"
+			},
+			{
+				"type": "wine",
+				"file": "https://d3mzlbmn9ukddk.cloudfront.net/Builds/YousicianSetup.exe"
+			}
+		],
+		"uninstall": [
+			{
+				"type": "wine:delete"
+			}
+		]
+	}
+}

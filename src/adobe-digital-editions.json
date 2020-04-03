@@ -1,0 +1,51 @@
+{
+	"type": "wine",
+	"name": "adobe-digital-editions",
+	"version": "1.0.0-beta",
+	"architecture": "i386",
+	"description": "Adobe Digital Editions",
+	"tags": [
+		"adobe"
+	],
+	"links": {
+		"homepage": "https://www.adobe.com/solutions/ebook/digital-editions.html",
+		"repository": "https://github.com/strootje/bottles",
+		"issues": "https://github.com/strootje/bottles/issues"
+	},
+	"author": {
+		"name": "Bastiaan",
+		"homepage": "https://strootje.com"
+	},
+	"contributors": [],
+	"steps": {
+		"launch": [
+			{
+				"type": "winetricks",
+				"add": "win7"
+			},
+			{
+				"type": "wine:start",
+				"file": "C:\\Program Files\\Adobe\\Adobe Digital Editions 4.5\\DigitalEditions.exe"
+			}
+		],
+		"install": [
+			{
+				"type": "winetricks",
+				"add": "corefonts"
+			},
+			{
+				"type": "winetricks",
+				"add": "win7"
+			},
+			{
+				"type": "wine",
+				"file": "https://adedownload.adobe.com/pub/adobe/digitaleditions/ADE_4.5_Installer.exe"
+			}
+		],
+		"uninstall": [
+			{
+				"type": "wine:delete"
+			}
+		]
+	}
+}

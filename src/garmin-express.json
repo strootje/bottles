@@ -1,0 +1,61 @@
+{
+	"type": "wine",
+	"name": "garmin-express",
+	"version": "1.0.0-beta",
+	"architecture": "i386",
+	"description": "Garmin-express",
+	"tags": [
+		"garmin",
+		"device",
+		"cycling"
+	],
+	"links": {
+		"homepage": "https://www.garmin.com/en-US/software/express/windows/",
+		"repository": "https://github.com/strootje/bottles",
+		"issues": "https://github.com/strootje/bottles/issues"
+	},
+	"author": {
+		"name": "Bastiaan Stroosnijder",
+		"homepage": "https://strootje.com"
+	},
+	"contributors": [],
+	"steps": {
+		"launch": [
+			{
+				"type": "winetricks",
+				"add": "win7"
+			},
+			{
+				"type": "wine:start",
+				"file": "<TODO>"
+			}
+		],
+		"install": [
+			{
+				"type": "winetricks",
+				"add": "corefonts"
+			},
+			{
+				"type": "winetricks",
+				"add": "dotnet452"
+			},
+			{
+				"type": "winetricks",
+				"add": "vcrun2017"
+			},
+			{
+				"type": "winetricks",
+				"add": "win7"
+			},
+			{
+				"type": "wine",
+				"file": "https://download.garmin.com/omt/express/GarminExpress.exe"
+			}
+		],
+		"uninstall": [
+			{
+				"type": "wine:delete"
+			}
+		]
+	}
+}
