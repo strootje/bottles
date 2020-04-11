@@ -1,0 +1,7 @@
+{
+	"output": "./dist",
+	"remote": {
+		"name": "bottler's bottles",
+		"path": "https://bottles.surge.sh"
+	}
+}
