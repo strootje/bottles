@@ -1,0 +1,47 @@
+[{
+	"type": 1,
+	"title": "Gotify",
+	"description": "Notification platform",
+	"logo": "https://avatars3.githubusercontent.com/u/36410427?s=200&v=4",
+	"categories": [ "gotify.net", "Notification", "Server" ],
+
+	"image": "gotify/server",
+	"restart_policy": "unless-stopped",
+	"ports": [
+		"4060:80/tcp"],
+	"volumes": [
+		{ "container": "/app/data" }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "VIRTUAL_HOST",
+			"label": "Virtual host name",
+			"default": "gotify.local"
+		},
+		{
+			"name": "VIRTUAL_PORT",
+			"label": "Virtual host port",
+			"default": "80"
+		},
+		{
+			"name": "LETSENCRYPT_HOST",
+			"label": "Let's Encrypt Host",
+			"default": "gotify.local"
+		}
+	]
+}]
