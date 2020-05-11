@@ -1,0 +1,299 @@
+[{
+	"type": 1,
+	"title": "Watchtower",
+	"description": "docker auto updater",
+	"logo": "https://raw.githubusercontent.com/containrrr/watchtower/master/gopher-watchtower.png",
+	"categories": [ "Watchtower", "containerrr", "update",  "automatic" ],
+
+	"image": "containrrr/watchtower",
+	"restart_policy": "unless-stopped",
+	"volumes": [
+		{ "container": "/var/run/docker.sock", "bind": "/var/run/docker.sock", "readonly": true }],
+
+	"env": [
+		{
+			"name": "PUID",
+			"label": "Portainer User ID",
+			"default": "1001"
+		},
+		{
+			"name": "PGID",
+			"label": "Portainer Group ID",
+			"default": "1001"
+		},
+		{
+			"name": "TZ",
+			"label": "Timezone",
+			"default": "Europe/Amsterdam"
+		},
+		{
+			"name": "WATCHTOWER_CLEANUP",
+			"label": "Cleanup old images",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_REMOVE_VOLUMES",
+			"label": "Force new volumes to be created (DELETES VOLUMES!!!)",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_DEBUG",
+			"label": "Enable debug logging",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_INCLUDE_STOPPED",
+			"label": "Include stopped containers",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_REVIVE_STOPPED",
+			"label": "Revive stopped containers",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_POLL_INTERVAL",
+			"label": "Poll interval (in seconds)",
+			"default": "300"
+		},
+		{
+			"name": "WATCHTOWER_LABEL_ENABLE",
+			"label": "Filter by enable label",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_MONITOR_ONLY",
+			"label": "Without updating containers",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_MONITOR_ONLY",
+			"label": "Without restarting containers",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_NO_PULL",
+			"label": "Without pulling new images",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_NO_STARTUP_MESSAGE",
+			"label": "Without sending a startup message",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_RUN_ONCE",
+			"label": "Run once",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_SCHEDULE",
+			"label": "Scheduling (cron format)",
+			"default": "-"
+		},
+		{
+			"name": "WATCHTOWER_TIMEOUT",
+			"label": "Wait until timeout",
+			"default": "10s"
+		},
+		{
+			"name": "DOCKER_TLS_VERIFY",
+			"label": "TLS Verification",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false",
+					"default": true
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATIONS",
+			"label": "Notifications (email, slack, msteams, gotify)"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_EMAIL_FROM",
+			"label": "Notifications Email From"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_EMAIL_TO",
+			"label": "Notifications Email To"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_EMAIL_SERVER",
+			"label": "Notifications Email Server"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_EMAIL_SERVER_USER",
+			"label": "Notifications Email User"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_EMAIL_SERVER_PASSWORD",
+			"label": "Notifications Email Password"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_EMAIL_DELAY",
+			"label": "Notifications Email Delay"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_SLACK_HOOK_URL",
+			"label": "Notifications Slack Hook Url"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_SLACK_IDENTIFIER",
+			"label": "Notifications Slack Identifier"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_SLACK_CHANNEL",
+			"label": "Notifications Slack Channel"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_SLACK_ICON_EMOJI",
+			"label": "Notifications Slack Icon Emoji"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_SLACK_ICON_URL",
+			"label": "Notifications Slack Icon Url"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_MSTEAMS_HOOK_URL",
+			"label": "Notifications Msteams Hook Url"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_MSTEAMS_USE_LOG_DATA",
+			"label": "Notifications Msteams Use Log Data",
+			"select": [
+				{
+					"text": "Yes",
+					"values": "true"
+				},
+				{
+					"text": "No",
+					"values": "false"
+				}
+			]
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_GOTIFY_URL",
+			"label": "Notifications Gotify Url"
+		},
+		{
+			"name": "WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN",
+			"label": "Notifications Gotify Token"
+		}
+	]
+}]

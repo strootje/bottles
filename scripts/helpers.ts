@@ -55,7 +55,7 @@ async function MergeJsonFilesFromFolder<T extends {}>(folder: string, pattern: s
 		const fileAsString = file as string;
 		const filepath = resolve(folder, fileAsString);
 		const json = await ReadJsonFileAsync<T>(filepath);
-		results.push(json);
+		results.push(json[0]);
 	}
 
 	return results;
