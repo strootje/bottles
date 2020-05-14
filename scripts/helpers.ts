@@ -20,10 +20,6 @@ export function DistDir(...paths: string[]): string {
 	return BaseDir('dist', ...paths);
 }
 
-export function GetBottlesJsonAsync(): Promise<BottleFile[]> {
-	return MergeJsonFilesFromFolder(SrcDir(), './*.json');
-}
-
 export function GetTemplatesJsonAsync(): Promise<TemplateFile[]> {
 	return MergeJsonFilesFromFolder(SrcDir('portainer'), '**/*.json');
 }
@@ -31,12 +27,6 @@ export function GetTemplatesJsonAsync(): Promise<TemplateFile[]> {
 export async function ReadJsonFileAsync<T extends {}>(path: string): Promise<T> {
 	const raw = await ReadFileAsync(path, 'utf-8');
 	const json = JSON.parse(raw) as T;
-	return json;
-}
-
-export async function ReadJsonFile2Async(path: string): Promise<{}> {
-	const raw = await ReadFileAsync(path, 'utf-8');
-	const json = JSON.parse(raw);
 	return json;
 }
 
@@ -55,7 +45,7 @@ async function MergeJsonFilesFromFolder<T extends {}>(folder: string, pattern: s
 		const fileAsString = file as string;
 		const filepath = resolve(folder, fileAsString);
 		const json = await ReadJsonFileAsync<T>(filepath);
-		results.push(json[0]);
+		results.push(json);
 	}
 
 	return results;

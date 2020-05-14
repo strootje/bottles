@@ -1,0 +1,62 @@
+app-id: com.yousician.Yousician
+branch: stable
+
+runtime: org.freedesktop.Platform
+runtime-version: '19.08'
+sdk: org.freedesktop.Sdk
+
+tags:
+- proprietary
+
+command: hello.sh
+
+finish-args:
+- --socket=x11
+- --share=network
+- --share=ipc
+- --device=dri
+- --socket=pulseaudio
+- --env=WINEDEBUG=-all
+
+modules:
+- name: wine64
+  only-arches:
+  - x86_64
+  config-opts:
+  - --enable-win64
+  - --with-x
+  - --with-gstreamer
+  make-args:
+  - -j16
+  sources:
+  - type: git
+    url: git://source.winehq.org/git/wine.git
+    tag: wine-5.8
+
+- name: winetricks
+  buildsystem: simple
+  build-commands:
+  - chmod +x winetricks
+  - install -D winetricks /app/bin/winetricks
+  sources:
+  - type: file
+    url: https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks
+    sha256: be1a1f2d29e421b8ba17d3db9b71cb72bf087fb9dadd8eb48682fa5bebac09c6
+    dest-filename: winetricks
+
+- name: app
+  buildsystem: simple
+  build-commands:
+  - mkdir /app/pfx
+  - ln -s /app/bin/wine64 /app/bin/wine
+  - env WINEPREFIX=/app/pfx WINEARCH=win64 winetricks corefonts
+  - install -D hello.sh /usr/bin/hello.sh
+  sources:
+  - type: file
+    url: https://d3mzlbmn9ukddk.cloudfront.net/Builds/YousicianSetup.exe
+    sha256: 03b7d320dd804a754a033d658d14158f268d4e825465221ea0485536956fc6b1
+    dest-filename: setup-yousician.exe
+  - type: script
+    commands:
+    - echo "Hello world!"
+    dest-filename: hello.sh

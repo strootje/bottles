@@ -1,0 +1,46 @@
+[
+	{
+		"type": 1,
+		"title": "SourceGraph",
+		"description": "Code Search and Navigation for Developers",
+		"logo": "https://index.tnwcdn.com/images/5b13a61dc5cfd389451e474e2a0458209e2d17e7.jpg",
+		"categories": [
+			"sourcegraph.com",
+			"source",
+			"code",
+			"indexer",
+			"search"
+		],
+		"image": "sourcegraph/server:3.14.4",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"7080:7080/tcp"
+		],
+		"volumes": [
+			{
+				"container": "/etc/sourcegraph"
+			},
+			{
+				"container": "/var/opt/sourcegraph"
+			}
+		],
+		"env": [
+			{
+				"name": "VIRTUAL_HOST",
+				"label": "Virtual host name",
+				"default": "sourcegraph.local"
+			},
+			{
+				"name": "VIRTUAL_PORT",
+				"label": "Virtual host port",
+				"default": "7080",
+				"preset": true
+			},
+			{
+				"name": "LETSENCRYPT_HOST",
+				"label": "Let's Encrypt Host",
+				"default": "sourcegraph.local"
+			}
+		]
+	}
+]

@@ -2,7 +2,7 @@ import { watch as Chokidar } from 'chokidar';
 import { debug } from 'debug';
 import * as Express from 'express';
 import { resolve } from 'path';
-import { ReadJsonFile2Async, SrcDir } from './helpers';
+import { ReadJsonFileAsync, SrcDir } from './helpers';
 const logger = debug('bottles:scripts:serve');
 
 interface ListOfFiles {
@@ -18,20 +18,19 @@ interface ListOfFiles {
 
 	const server = Express();
 	const bottles: ListOfFiles = {};
-	server.get('/index.json', (_, res) => res.json({ info: { title: 'bottles' }, data: Object.keys(bottles).filter(p => !p.startsWith('portainer')).map(p => bottles[p]) }));
-	server.get('/templates.json', (_, res) => res.json(Object.values(Object.keys(bottles).filter(p => p.startsWith('portainer')).map(p => bottles[p]))));
+	server.get('/templates.json', (_, res) => res.json(Object.values(Object.keys(bottles).map(p => bottles[p]))));
 
 	server.listen(config.port, config.host, () => {
 		logger('server started at http://%s:%s', config.host, config.port);
 
 		const watcher = Chokidar('**/*.json', {
-			cwd: SrcDir()
+			cwd: SrcDir('portainer')
 		});
 
 		watcher.on('add', async filename => {
 			try {
-				const path = resolve(SrcDir(), filename);
-				const json = await ReadJsonFile2Async(path);
+				const path = resolve(SrcDir('portainer'), filename);
+				const json = await ReadJsonFileAsync(path);
 
 				if (!bottles[filename]) {
 					bottles[filename] = json;
@@ -44,8 +43,8 @@ interface ListOfFiles {
 
 		watcher.on('change', async filename => {
 			try {
-				const path = resolve(SrcDir(), filename);
-				const json = await ReadJsonFile2Async(path);
+				const path = resolve(SrcDir('portainer'), filename);
+				const json = await ReadJsonFileAsync(path);
 
 				if (bottles[filename]) {
 					bottles[filename] = json;

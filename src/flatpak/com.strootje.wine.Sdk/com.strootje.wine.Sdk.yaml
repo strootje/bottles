@@ -1,0 +1,4 @@
+build-runtime: true
+
+id: com.strootje.wine.Sdk
+id-platform: com.strootje.wine.Platform
