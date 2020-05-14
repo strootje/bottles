@@ -21,7 +21,7 @@ export function DistDir(...paths: string[]): string {
 }
 
 export function GetTemplatesJsonAsync(): Promise<TemplateFile[]> {
-	return MergeJsonFilesFromFolder(SrcDir('portainer'), '**/*.json');
+	return MergeJsonFilesFromFolder<TemplateFile>(SrcDir('portainer'), '**/*.json');
 }
 
 export async function ReadJsonFileAsync<T extends {}>(path: string): Promise<T> {
@@ -44,8 +44,9 @@ async function MergeJsonFilesFromFolder<T extends {}>(folder: string, pattern: s
 	for await (const file of files) {
 		const fileAsString = file as string;
 		const filepath = resolve(folder, fileAsString);
-		const json = await ReadJsonFileAsync<T>(filepath);
-		results.push(json);
+		const json = await ReadJsonFileAsync<[]>(filepath);
+
+		json.forEach(p => results.push(p));
 	}
 
 	return results;
