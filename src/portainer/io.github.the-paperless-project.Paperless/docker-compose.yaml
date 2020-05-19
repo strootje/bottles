@@ -5,6 +5,7 @@ services:
     container_name: paperless
     image: thepaperlessproject/paperless:latest
     restart: unless-stopped
+    network_mode: bridge
     ports:
     - "8000:8000"
     volumes:
