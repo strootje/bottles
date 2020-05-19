@@ -1,14 +1,18 @@
 app-id: com.yousician.Yousician
 branch: stable
 
+tags:
+- proprietary
+
 runtime: org.freedesktop.Platform
 runtime-version: '19.08'
 sdk: org.freedesktop.Sdk
 
-tags:
-- proprietary
+sdk-extensions:
+- org.freedesktop.Sdk.Compat.i386
+- org.freedesktop.Sdk.Extension.toolchain-i386
 
-command: hello.sh
+command: yousician
 
 finish-args:
 - --socket=x11
@@ -16,27 +20,72 @@ finish-args:
 - --share=ipc
 - --device=dri
 - --socket=pulseaudio
-- --env=WINEDEBUG=-all
+- --socket=system-bus
+- --env=WINEPREFIX=/app/pfx
+- --env=WINEARCH=win64
+- --allow=multiarch
 
 modules:
-- name: wine64
-  only-arches:
-  - x86_64
-  config-opts:
-  - --enable-win64
-  - --with-x
-  - --with-gstreamer
-  make-args:
-  - -j16
+- name: cabextract
+  buildsystem: autotools
   sources:
-  - type: git
-    url: git://source.winehq.org/git/wine.git
-    tag: wine-5.8
+  - type: archive
+    url: https://www.cabextract.org.uk/cabextract-1.6.tar.gz
+    sha256: cee661b56555350d26943c5e127fc75dd290b7f75689d5ebc1f04957c4af55fb
 
-- name: winetricks
+# - name: wine-wine64
+#   builddir: true
+#   config-opts:
+#   - --enable-win64
+#   - --disable-win16
+#   - --with-x
+#   - --without-gstreamer
+#   make-args:
+#   - -j16
+#   sources:
+#   - type: archive
+#     url: https://dl.winehq.org/wine/source/5.x/wine-5.8.tar.xz
+#     sha256: cbad04c261437abec16945cd7ca83c77950f3e03099d7e3f883a6ea7293233cf
+#   - type: archive
+#     url: https://github.com/wine-staging/wine-staging/archive/v5.8.tar.gz
+#     sha256: a7f0b62f5cfa85b385fd7e5a9cb93f58ce943dcdf98fc027550aa6cd99ae394d
+#   - type: shell
+#     commands:
+#     - ./patches/patchinstall.sh DESTDIR=$(pwd) --all
+
+- name: wine-wine32
+  builddir: true
+  config-opts:
+  - --disable-win64
+  - --disable-win16
+  - --with-x
+  - --without-gstreamer
+  build-options:
+    arch:
+      x86_64:
+        prepend-pkg-config-path: /usr/lib/i386-linux-gnu
+        prepend-path: /usr/lib/sdk/toolchain-i386/bin
+        env:
+          CC: i686-unknown-linux-gnu-gcc
+          CXX: i686-unknown-linux-gnu-g++
+        config-opts:
+        - --libdir=/app/lib32
+  make-args:
+  - -j32
+  sources:
+  - type: archive
+    url: https://dl.winehq.org/wine/source/5.x/wine-5.8.tar.xz
+    sha256: cbad04c261437abec16945cd7ca83c77950f3e03099d7e3f883a6ea7293233cf
+  - type: archive
+    url: https://github.com/wine-staging/wine-staging/archive/v5.8.tar.gz
+    sha256: a7f0b62f5cfa85b385fd7e5a9cb93f58ce943dcdf98fc027550aa6cd99ae394d
+  - type: shell
+    commands:
+    - ./patches/patchinstall.sh DESTDIR=$(pwd) --all
+
+- name: wine-winetricks
   buildsystem: simple
   build-commands:
-  - chmod +x winetricks
   - install -D winetricks /app/bin/winetricks
   sources:
   - type: file
@@ -44,19 +93,14 @@ modules:
     sha256: be1a1f2d29e421b8ba17d3db9b71cb72bf087fb9dadd8eb48682fa5bebac09c6
     dest-filename: winetricks
 
-- name: app
+- name: yousician
   buildsystem: simple
   build-commands:
   - mkdir /app/pfx
-  - ln -s /app/bin/wine64 /app/bin/wine
-  - env WINEPREFIX=/app/pfx WINEARCH=win64 winetricks corefonts
-  - install -D hello.sh /usr/bin/hello.sh
+  - install -D yousician /app/bin/yousician
+  - install -D yousician-installer /app/bin/yousician-installer
   sources:
   - type: file
-    url: https://d3mzlbmn9ukddk.cloudfront.net/Builds/YousicianSetup.exe
-    sha256: 03b7d320dd804a754a033d658d14158f268d4e825465221ea0485536956fc6b1
-    dest-filename: setup-yousician.exe
-  - type: script
-    commands:
-    - echo "Hello world!"
-    dest-filename: hello.sh
+    path: yousician
+  - type: file
+    path: yousician-installer

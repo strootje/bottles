@@ -1,0 +1,76 @@
+[
+	{
+		"type": 1,
+		"title": "Paperless",
+		"description": "Index and archive all of your scanned paper documents",
+		"logo": "https://raw.githubusercontent.com/the-paperless-project/paperless/master/src/paperless/static/paperless/img/logo-dark.png",
+		"categories": [
+			"paper",
+			"document",
+			"search",
+			"scanner"
+		],
+		"image": "thepaperlessproject/paperless:latest",
+		"restart_policy": "unless-stopped",
+		"ports": [
+			"8000:8000/tcp"
+		],
+		"volumes": [
+			{
+				"container": "/usr/src/paperless/data"
+			},
+			{
+				"container": "/usr/src/paperless/media"
+			},
+			{
+				"container": "/consume"
+			},
+			{
+				"container": "/export"
+			}
+		],
+		"env": [
+			{
+				"name": "USERMAP_UID",
+				"label": "User ID Mapping",
+				"default": "1001"
+			},
+			{
+				"name": "USERMAP_GID",
+				"label": "Group ID Mapping",
+				"default": "1001"
+			},
+			{
+				"name": "TZ",
+				"label": "Timezone",
+				"default": "Europe/Amsterdam"
+			},
+			{
+				"name": "VIRTUAL_HOST",
+				"label": "Virtual host name",
+				"default": "paperless.local"
+			},
+			{
+				"name": "VIRTUAL_PORT",
+				"label": "Virtual host port",
+				"default": "7080",
+				"preset": true
+			},
+			{
+				"name": "LETSENCRYPT_HOST",
+				"label": "Let's Encrypt Host",
+				"default": "paperless.local"
+			},
+			{
+				"name": "PAPERLESS_PASSPHRASE",
+				"label": "Paperless Passphrase"
+			},
+			{
+				"name": "PAPERLESS_OCR_LANGUAGES",
+				"description": "(see: https://www.loc.gov/standards/iso639-2/php/code_list.php)",
+				"label": "Languages for text recognition",
+				"default": "eng"
+			}
+		]
+	}
+]
