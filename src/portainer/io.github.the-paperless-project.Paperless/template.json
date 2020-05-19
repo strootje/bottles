@@ -1,6 +1,6 @@
 [
 	{
-		"type": 2,
+		"type": 3,
 		"title": "Paperless",
 		"description": "Index and archive all of your scanned paper documents",
 		"logo": "https://raw.githubusercontent.com/the-paperless-project/paperless/master/src/paperless/static/paperless/img/logo-dark.png",
