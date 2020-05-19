@@ -1,6 +1,6 @@
 [
 	{
-		"type": 1,
+		"type": 2,
 		"title": "Paperless",
 		"description": "Index and archive all of your scanned paper documents",
 		"logo": "https://raw.githubusercontent.com/the-paperless-project/paperless/master/src/paperless/static/paperless/img/logo-dark.png",
@@ -10,25 +10,10 @@
 			"search",
 			"scanner"
 		],
-		"image": "thepaperlessproject/paperless:latest",
-		"restart_policy": "unless-stopped",
-		"ports": [
-			"8000:8000/tcp"
-		],
-		"volumes": [
-			{
-				"container": "/usr/src/paperless/data"
-			},
-			{
-				"container": "/usr/src/paperless/media"
-			},
-			{
-				"container": "/consume"
-			},
-			{
-				"container": "/export"
-			}
-		],
+		"repository": {
+			"url": "https://github.com/strootje/bottles",
+			"stackfile": "https://raw.githubusercontent.com/strootje/bottles/master/src/portainer/io.github.the-paperless-project.Paperless/docker-compose.yaml"
+		},
 		"env": [
 			{
 				"name": "USERMAP_UID",
@@ -41,7 +26,7 @@
 				"default": "1001"
 			},
 			{
-				"name": "TZ",
+				"name": "PAPERLESS_TIME_ZONE",
 				"label": "Timezone",
 				"default": "Europe/Amsterdam"
 			},
@@ -62,6 +47,11 @@
 				"default": "paperless.local"
 			},
 			{
+				"name": "PAPERLESS_VOLUMES_DIR",
+				"label": "Paperless Volumes Folder",
+				"default": "/opt/docker/paperless/docs"
+			},
+			{
 				"name": "PAPERLESS_PASSPHRASE",
 				"label": "Paperless Passphrase"
 			},
@@ -70,6 +60,11 @@
 				"description": "(see: https://www.loc.gov/standards/iso639-2/php/code_list.php)",
 				"label": "Languages for text recognition",
 				"default": "eng"
+			},
+			{
+				"name": "PAPERLESS_INLINE_DOC",
+				"label": "Show inline docs",
+				"default": "true"
 			}
 		]
 	}
