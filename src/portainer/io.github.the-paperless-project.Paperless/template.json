@@ -53,7 +53,7 @@
 			{
 				"name": "VIRTUAL_PORT",
 				"label": "Virtual host port",
-				"default": "7080",
+				"default": "8000",
 				"preset": true
 			},
 			{
