@@ -2,6 +2,7 @@ version: '2'
 
 services:
   webserver:
+    container_name: paperless
     image: thepaperlessproject/paperless:latest
     restart: unless-stopped
     ports:
@@ -14,6 +15,7 @@ services:
     command: ["gunicorn", "-b", "0.0.0.0:8000"]
 
   consumer:
+    container_name: paperless-consumer
     image: thepaperlessproject/paperless:latest
     restart: unless-stopped
     depends_on:
